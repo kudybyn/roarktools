@@ -6,6 +6,11 @@ module.exports = {
       animation: {
         tada: 'tada 1s ease-in-out 0.25s infinite',
       },
+      screens: {
+        tablet: '640px',
+        laptop: '1100px',
+        desktop: '1280px',
+      },
       keyframes: {
         tada: {
           '0%': {

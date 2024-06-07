@@ -3,7 +3,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { useTranslation } from 'react-i18next'
 const MenuLayout = ({ children }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const menuLinks = [
     { title: t('routes.home'), link: '/' },
     { title: t('routes.products'), link: '/products' },

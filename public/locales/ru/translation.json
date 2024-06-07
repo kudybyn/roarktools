@@ -6,5 +6,11 @@
         "contactsUs": "Свяжитесь с нами",
         "resources": "Ресурсы",
         "blog": "Блог"
+    },
+    "burger-menu": {
+        "menu": "Меню",
+        "languages": "Языки",
+        "telephone-number": "Номер телефона",
+        "contactUs": "Свяжитесь с нами"
     }
 }

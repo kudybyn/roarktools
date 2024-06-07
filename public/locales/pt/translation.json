@@ -6,5 +6,11 @@
         "contactsUs": "Contate-Nos",
         "resources": "Recursos",
         "blog": "Blog"
+    },
+    "burger-menu": {
+        "menu": "Menu",
+        "languages": "Idiomas",
+        "telephone-number": "Número de Telefone",
+        "contactUs": "Fale Conosco"
     }
 }

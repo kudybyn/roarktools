@@ -27,9 +27,9 @@ const Footer = ({ menu }) => {
               viewBox='0 0 24 24'
               fill='none'
               stroke='white'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
               className='icon icon-tabler icons-tabler-outline icon-tabler-phone-call group-hover:stroke-redColor group-hover:scale-125 transition-all ease-out group-hover:animate-tada'
             >
               <path stroke='none' d='M0 0h24v24H0z' fill='none' />
@@ -43,7 +43,7 @@ const Footer = ({ menu }) => {
 
         <div className='flex gap-1'>
           <a
-                      target='_blank'
+            target='_blank'
             href={'https://twitter.com/roark_tools'}
             className={clsx(
               'w-[34px] transition-all hover:scale-110 ease-out cursor-pointer hover:bg-white hover:text-redColor hover:border-redColor h-[34px] flex items-center justify-center border border-white text-white uppercase font-normal'
@@ -56,9 +56,9 @@ const Footer = ({ menu }) => {
               viewBox='0 0 24 24'
               fill='none'
               stroke='currentColor'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
               className='icon icon-tabler icons-tabler-outline icon-tabler-brand-twitter '
             >
               <path stroke='none' d='M0 0h24v24H0z' fill='none' />
@@ -78,9 +78,9 @@ const Footer = ({ menu }) => {
               viewBox='0 0 24 24'
               fill='none'
               stroke='currentColor'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
               className='icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook '
             >
               <path stroke='none' d='M0 0h24v24H0z' fill='none' />
