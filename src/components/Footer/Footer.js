@@ -18,6 +18,7 @@ const Footer = ({ menu }) => {
           <a
             className='flex group gap-1 items-center text-white font-normal group-hover:text-redColor'
             href='tel:+16104244300'
+            target='_blank'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -42,6 +43,7 @@ const Footer = ({ menu }) => {
 
         <div className='flex gap-1'>
           <a
+                      target='_blank'
             href={'https://twitter.com/roark_tools'}
             className={clsx(
               'w-[34px] transition-all hover:scale-110 ease-out cursor-pointer hover:bg-white hover:text-redColor hover:border-redColor h-[34px] flex items-center justify-center border border-white text-white uppercase font-normal'

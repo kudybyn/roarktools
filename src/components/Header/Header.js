@@ -13,7 +13,8 @@ const Header = ({ menu }) => {
   }
   return (
     <div className='bg-black fixed w-full'>
-      <div className='w-full flex container mx-auto items-center justify-between py-5'>
+      <div className='w-full flex container mx-auto items-center justify-between py-5 px-5'>
+        <div className="flex gap-10 items-center">
         <img src={LogoImg} alt={'logo'} className='w-[220px] h-[60px]' />
         <div>
           <ul className='flex justify-between gap-3'>
@@ -36,6 +37,7 @@ const Header = ({ menu }) => {
               )
             })}
           </ul>
+        </div>
         </div>
         <div className='flex gap-6'>
           <div className='group'>
@@ -94,6 +96,7 @@ const Header = ({ menu }) => {
                 className={clsx(
                   'w-[34px] hover:scale-110 transition-all ease-out group cursor-pointer hover:bg-white hover:text-redColor hover:border-redColor h-[34px] flex items-center justify-center border border-white text-white uppercase font-normal'
                 )}
+                target="_blank"
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -113,6 +116,7 @@ const Header = ({ menu }) => {
               </a>
               <a
                 href='https://www.facebook.com/roarktoolsinc/'
+                target="_blank"
                 className={clsx(
                   'w-[34px] hover:scale-110 transition-all ease-out cursor-pointer group hover:bg-white hover:text-redColor hover:border-redColor h-[34px] flex items-center justify-center border border-white text-white uppercase font-normal'
                 )}
