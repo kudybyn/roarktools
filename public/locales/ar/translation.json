@@ -1,3 +1,10 @@
 {
-    "language":"arabik"
+    "language": "العربية",
+"routes" : {
+"home": "الرئيسية",
+"products": "المنتجات",
+"contactsUs": "اتصل بنا",
+"resources": "الموارد",
+"blog": "المدونة"
+}
 }

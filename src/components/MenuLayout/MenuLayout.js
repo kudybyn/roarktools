@@ -1,13 +1,15 @@
 import React from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import { useTranslation } from 'react-i18next'
 const MenuLayout = ({ children }) => {
+  const { t, i18n } = useTranslation()
   const menuLinks = [
-    { title: 'Home', link: '/' },
-    { title: 'Products', link: '/products' },
-    { title: 'Contacts Us', link: '/contacts-us' },
-    { title: 'Resources', link: '/resources' },
-    { title: 'Blog', link: '/blog' },
+    { title: t('routes.home'), link: '/' },
+    { title: t('routes.products'), link: '/products' },
+    { title: t('routes.contactsUs'), link: '/contacts' },
+    { title: t('routes.resources'), link: '/resources' },
+    { title: t('routes.blog'), link: '/blog' },
   ]
 
   return (

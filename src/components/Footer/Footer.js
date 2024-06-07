@@ -44,7 +44,7 @@ const Footer = ({ menu }) => {
           <a
             href={'https://twitter.com/roark_tools'}
             className={clsx(
-              'w-[34px] transition-all hover:scale-150 ease-out cursor-pointer hover:bg-white hover:text-redColor hover:border-redColor h-[34px] flex items-center justify-center border border-white text-white uppercase font-normal'
+              'w-[34px] transition-all hover:scale-110 ease-out cursor-pointer hover:bg-white hover:text-redColor hover:border-redColor h-[34px] flex items-center justify-center border border-white text-white uppercase font-normal'
             )}
           >
             <svg
@@ -66,7 +66,7 @@ const Footer = ({ menu }) => {
           <a
             href='https://www.facebook.com/roarktoolsinc/'
             className={clsx(
-              'w-[34px] hover:scale-150 transition-all ease-out cursor-pointer group hover:bg-white hover:text-redColor hover:border-redColor h-[34px] flex items-center justify-center border border-white text-white uppercase font-normal'
+              'w-[34px] hover:scale-110 transition-all ease-out cursor-pointer group hover:bg-white hover:text-redColor hover:border-redColor h-[34px] flex items-center justify-center border border-white text-white uppercase font-normal'
             )}
           >
             <svg

@@ -1,3 +1,10 @@
 {
-    "language": "portugese"
+    "language": "português",
+    "routes" : {
+        "home": "Início",
+        "products": "Produtos",
+        "contactsUs": "Contate-Nos",
+        "resources": "Recursos",
+        "blog": "Blog"
+    }
 }

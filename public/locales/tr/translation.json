@@ -1,3 +1,10 @@
 {
-    "language":"turkey"
+    "language": "Türkçe",
+    "routes" : {
+        "home": "Ana Sayfa",
+        "products": "Ürünler",
+        "contactsUs": "Bize Ulaşın",
+        "resources": "Kaynaklar",
+        "blog": "Blog"
+    }
 }
