@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { useTranslation } from 'react-i18next'
 const Header = ({ menu }) => {
   const { i18n } = useTranslation()
-  const [activeLanguage, setActiveLanguage] = useState('en')
+  const [activeLanguage, setActiveLanguage] = useState(i18n.language)
   const [activePage, setActivePage] = useState('home')
   const languageList = ['en', 'pt', 'ru', 'ar', 'tr']
 
