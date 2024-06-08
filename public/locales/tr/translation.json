@@ -6,5 +6,11 @@
         "contactsUs": "Bize Ulaşın",
         "resources": "Kaynaklar",
         "blog": "Blog"
+    },
+    "burger-menu": {
+        "menu": "Menü",
+        "languages": "Diller",
+        "telephone-number": "Telefon Numarası",
+        "contactUs": "Bize Ulaşın"
     }
 }

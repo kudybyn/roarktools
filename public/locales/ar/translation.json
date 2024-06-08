@@ -1,10 +1,19 @@
 {
     "language": "العربية",
-"routes" : {
-"home": "الرئيسية",
-"products": "المنتجات",
-"contactsUs": "اتصل بنا",
-"resources": "الموارد",
-"blog": "المدونة"
+    "routes" : {
+        "home": "الرئيسية",
+        "products": "المنتجات",
+        "contactsUs": "اتصل بنا",
+        "resources": "الموارد",
+        "blog": "المدونة"
+    },
+    "burger-menu": {
+        "menu": "قائمة",
+        "languages": "اللغات",
+        "telephone-number": "رقم الهاتف",
+        "contactUs": "اتصل بنا"
+    }
 }
-}
+
+
+
