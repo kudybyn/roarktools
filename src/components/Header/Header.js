@@ -12,7 +12,7 @@ const Header = ({ menu }) => {
     i18n.changeLanguage(lng)
   }
   return (
-    <div className='bg-black fixed w-full'>
+    <div className='bg-black fixed w-full z-20'>
       <div className='w-full flex container mx-auto items-center justify-between py-5 px-4 xl:px-5 sm:px-10 laptop:px-6'>
         <div className='flex gap-10 items-center'>
           <img src={LogoImg} alt={'logo'} className='w-[200px] h-[60px]' loading='lazy'/>
@@ -71,9 +71,10 @@ const Header = ({ menu }) => {
               </a>
             </div>
             <div className='flex gap-1'>
-              {languageList.map((language) => {
+              {languageList.map((language,index) => {
                 return (
                   <div
+                  key={index}
                     onClick={() => {
                       setActiveLanguage(language)
                       changeLanguage(language)
@@ -221,9 +222,10 @@ const BurgerMenu = ({ languageList, menu }) => {
             <div className='h-[1px] w-full bg-redColor mb-3' />
             <div className='flex gap-1'>
               {languageList &&
-                languageList.map((language) => {
+                languageList.map((language,key) => {
                   return (
                     <div
+                    key={key}
                       onClick={() => {
                         setActiveLanguage(language)
                         changeLanguage(language)
