@@ -12,7 +12,20 @@
         "languages": "اللغات",
         "telephone-number": "رقم الهاتف",
         "contactUs": "اتصل بنا"
-    }
+    },
+    "homepage":{
+        "catalog":"كتالوج",
+        "title":"حلّك للمشكلة",
+        "viewProjects":"عرض جميع المنتجات",
+        "products":"منتجات",
+        "services":"خدماتنا",
+        "ourProducts":"منتجاتنا",
+        "ourProductsDesc":"توفر Roark Tools معدات التثبيت الصناعية الثقيلة للشراء أو الإيجار.",
+        "contactUsDesc":"سنساعد في الإجابة على أي من أسئلتك.",
+        "servicesOur":"خدمات التأجير / التثبيت بالبراغي",
+        "servicesOurDesc":"خدمات التأجير والتثبيت متاحة حسب الطلب."
+
+      }
 }
 
 

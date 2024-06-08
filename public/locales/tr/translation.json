@@ -12,5 +12,17 @@
         "languages": "Diller",
         "telephone-number": "Telefon Numarası",
         "contactUs": "Bize Ulaşın"
-    }
+    },
+    "homepage":{
+        "catalog":"Katalog",
+        "title":"soruna çözümünüz",
+        "viewProjects":"Tüm Ürünleri Görüntüle",
+        "products":"Ürünler",
+        "services":"HİZMETLERİMİZ",
+        "ourProducts":"Ürünlerimiz",
+        "ourProductsDesc":"Roark Tools ağır endüstriyel cıvata ekipmanları satış veya kiralama hizmeti sunar.",
+        "contactUsDesc":"Herhangi bir sorunuzda yardımcı olacağız.",
+        "servicesOur":"Kiralama/Vida Hizmetleri",
+        "servicesOurDesc":"Kiralama ve cıvata sıkma hizmetleri talep üzerine mevcuttur."
+      }
 }

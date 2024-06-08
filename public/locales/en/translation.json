@@ -12,5 +12,17 @@
         "languages": "Languages",
         "telephone-number": "Telephone Number",
         "contactUs": "Contact Us"
+    },
+    "homepage":{
+      "catalog":"Catalog",
+      "title":"your solution to the problem",
+      "viewProjects":"View All Products",
+      "products":"Products",
+      "services":"OUR SERVICES",
+      "ourProducts":"Our Products",
+      "ourProductsDesc":"Roark Tools Provides heavy industrial bolting equipment for purchase or rent.",
+      "contactUsDesc":"We will help with any of your questions",
+      "servicesOur":"Rental/Bolting Services",
+      "servicesOurDesc":"Renting and Bolting Services are available upon request."
     }
 }

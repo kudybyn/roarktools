@@ -70,6 +70,7 @@ const Footer = ({ menu }) => {
             className={clsx(
               'w-[34px] hover:scale-110 transition-all ease-out cursor-pointer group hover:bg-white hover:text-redColor hover:border-redColor h-[34px] flex items-center justify-center border border-white text-white uppercase font-normal'
             )}
+            target="_blank"
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'

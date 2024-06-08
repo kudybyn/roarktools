@@ -12,5 +12,17 @@
         "languages": "Idiomas",
         "telephone-number": "Número de Telefone",
         "contactUs": "Fale Conosco"
-    }
+    },
+    "homepage":{
+        "catalog":"Catálogo",
+        "title":"sua solução para o problema",
+        "viewProjects":"Ver Todos os Produtos",
+        "products":"Produtos",
+        "services":"NOSSOS SERVIÇOS",
+        "ourProducts":"Nossos Produtos",
+        "ourProductsDesc":"A Roark Tools oferece equipamentos de fixação industrial pesada para compra ou aluguel.",
+        "contactUsDesc":"Nós ajudaremos com qualquer uma de suas perguntas.",
+        "servicesOur":"Serviços de Aluguel/Parafusamento",
+        "servicesOurDesc":"Serviços de aluguer e fixação estão disponíveis mediante solicitação."
+      }
 }
