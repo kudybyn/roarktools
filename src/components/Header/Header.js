@@ -12,7 +12,7 @@ const Header = ({ menu }) => {
     i18n.changeLanguage(lng)
   }
   return (
-    <div className='bg-black fixed w-full'>
+    <div className='bg-black fixed w-full relative z-10'>
       <div className='w-full flex container mx-auto items-center justify-between py-5 px-5'>
         <div className="flex gap-10 items-center">
         <img src={LogoImg} alt={'logo'} className='w-[220px] h-[60px]' />

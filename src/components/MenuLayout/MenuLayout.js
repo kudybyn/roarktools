@@ -13,7 +13,7 @@ const MenuLayout = ({ children }) => {
   ]
 
   return (
-    <div>
+    <div className="w-full h-full">
       <Header menu={menuLinks} />
       <div>{children}</div>
       <Footer menu={menuLinks} />
