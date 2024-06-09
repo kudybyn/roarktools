@@ -4,30 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3efff3eb-dd0f-439c-a89a-203155d2e211" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/AdminPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminBlogs/AdminBlogs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminCatalog/AdminCatalog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminHeader/AdminHeader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminManuals/AdminManuals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/AdminResources.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminRoutes/AdminRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminSuspenseContent/AdminSuspenseContent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/LeftSidebar/LeftSidebar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/App/AdminLayout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/App/SingInAdminPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/slices/AuthSlice.js" afterDir="false" />
+    <list default="true" id="3efff3eb-dd0f-439c-a89a-203155d2e211" name="Changes" comment="feat: add base admin layout; add admin sidebar; add admin registration page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/LeftSidebar/LeftSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/LeftSidebar/LeftSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/AdminLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/AdminLayout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Catalog/CatalogSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/slices/CatalogSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/SingInAdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/SingInAdminPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Calatog/Catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Calatog/Catalog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/OurServices/OurServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/OurServices/OurServices.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +109,7 @@
       <workItem from="1717601926678" duration="2180000" />
       <workItem from="1717613694980" duration="3375000" />
       <workItem from="1717659085950" duration="5945000" />
-      <workItem from="1717696314020" duration="49056000" />
+      <workItem from="1717696314020" duration="50706000" />
     </task>
     <servers />
   </component>
@@ -140,5 +126,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: add base admin layout; add admin sidebar; add admin registration page" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add base admin layout; add admin sidebar; add admin registration page" />
   </component>
 </project>

@@ -17,7 +17,6 @@ const AdminLayout = () => {
           <Suspense fallback={<AdminSuspenseContent />}>
             <Routes>
               {adminRoutes.map((route, key) => {
-                console.log('route.component', route.component)
                 return (
                   <Route
                     key={key}

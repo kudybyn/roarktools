@@ -15,7 +15,6 @@ const SingInAdminPage = lazy(() => import('./SingInAdminPage'))
 function App() {
   const authAccessToken = useSelector((store) => store.auth.authAccessToken)
 
-  console.log('authAccessToken', authAccessToken)
   return (
     <div className='font-bold text-bold'>
       <Router>

@@ -19,7 +19,6 @@ const SingInAdminPage = () => {
     signInWithEmailAndPassword(auth, userData.email, userData.password)
       .then((userCredential) => {
         const user = userCredential.user
-        console.log('fsdfs')
         // push('/admin/catalog')
       })
       .catch((error) => {

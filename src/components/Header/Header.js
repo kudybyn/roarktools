@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import LogoImg from '../../assets/logo.png'
 import clsx from 'clsx'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 const Header = ({ menu }) => {
   const { i18n } = useTranslation()
   const [activeLanguage, setActiveLanguage] = useState(i18n.language)
@@ -27,18 +27,14 @@ const Header = ({ menu }) => {
               {menu.map((link) => {
                 return (
                   <li key={link.title}>
-                    <Link
-                      onClick={() => setActivePage(link.title.toLowerCase())}
-                      className={clsx(
-                        activePage === link.title.toLowerCase()
-                          ? 'text-redColor border-b border-redColor'
-                          : 'text-white',
-                        'font-normal text-lg hover:text-redColor ease-out transition-all'
-                      )}
+                    <NavLink
                       to={link.link}
+                      className={({ isActive }) =>
+                        `${isActive ? 'text-redColor border-b border-redColor' : 'text-white'} font-normal text-lg hover:text-redColor ease-out transition-all`
+                      }
                     >
                       {link.title}
-                    </Link>
+                    </NavLink>
                   </li>
                 )
               })}

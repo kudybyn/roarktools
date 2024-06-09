@@ -1,5 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
+import { NavLink } from 'react-router-dom'
 
 const Footer = ({ menu }) => {
   return (
@@ -9,7 +10,14 @@ const Footer = ({ menu }) => {
           {menu.map((linkData) => {
             return (
               <li className='text-white text-center font-normal text-base hover:text-redColor w-fit ease-out transition-all'>
-                <a href={linkData.link}>{linkData.title}</a>
+                <NavLink
+                  to={linkData.link}
+                  className={({ isActive }) =>
+                    `${isActive ? 'text-redColor border-b border-redColor' : ''}`
+                  }
+                >
+                  {linkData.title}
+                </NavLink>
               </li>
             )
           })}
@@ -70,7 +78,7 @@ const Footer = ({ menu }) => {
             className={clsx(
               'w-[34px] hover:scale-110 transition-all ease-out cursor-pointer group hover:bg-white hover:text-redColor hover:border-redColor h-[34px] flex items-center justify-center border border-white text-white uppercase font-normal'
             )}
-            target="_blank"
+            target='_blank'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
