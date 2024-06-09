@@ -24,5 +24,20 @@
         "contactUsDesc":"Nós ajudaremos com qualquer uma de suas perguntas.",
         "servicesOur":"Serviços de Aluguel/Parafusamento",
         "servicesOurDesc":"Serviços de aluguer e fixação estão disponíveis mediante solicitação."
-      }
+      },
+      "alert":{
+        "successAlert": "Mensagem foi enviada!"
+    },
+    "required":{    "type": "Tipo de pedido é obrigatório",
+    "name": "O nome é obrigatório",
+    "emailType": "Formato de e-mail inválido",
+    "email": "O e-mail é obrigatório",
+    "message": "A mensagem é obrigatória"},
+    "form":{
+        "requireType": "Que tipo de pedido você tem?",
+        "name": "Seu nome",
+        "email": "Seu e-mail",
+        "message": "Mensagem",
+        "submit": "Enviar"
+    }
 }

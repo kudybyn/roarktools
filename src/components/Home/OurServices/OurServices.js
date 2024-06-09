@@ -3,6 +3,7 @@ import Key from '../../../assets/homepage/key.svg'
 import { Link } from 'react-router-dom'
 import Contact from '../../../assets/homepage/contact.svg'
 import Service from '../../../assets/homepage/service.svg'
+import { Link as LinkReact } from 'react-scroll';
 
 export default function OurServices() {
   const { t } = useTranslation()
@@ -15,7 +16,7 @@ export default function OurServices() {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6 items-start'>
           <Link
             to='/products'
-            className='flex flex-col gap-2 items-center justify-center max-w-[250px] text-center'
+            className='flex flex-col gap-2 items-center justify-center max-w-[250px] text-center transition duration-500 hover:scale-105'
           >
             <div className='w-[70px] h-[70px] rounded-[100%] border-2 border-white flex items-center justify-center'>
               <img
@@ -34,11 +35,11 @@ export default function OurServices() {
           </Link>
           <Link
             to='/contacts'
-            className='flex flex-col gap-2 items-center justify-center max-w-[250px] text-center'
+            className='flex flex-col gap-2 items-center justify-center max-w-[250px] text-center transition duration-500 hover:scale-105'
           >
             <div className='w-[70px] h-[70px] rounded-[100%] border-2 border-white flex items-center justify-center'>
               <img
-                src={Contact}
+                src={Service}
                 alt='contacts'
                 className='
                     w-[40px] h-[40px]'
@@ -51,13 +52,16 @@ export default function OurServices() {
               {t('homepage.contactUsDesc')}
             </div>
           </Link>
-          <a
-            href='#contacts'
-            className='flex flex-col gap-2 items-center justify-center max-w-[250px] text-center'
+          <LinkReact
+            to='contacts'
+            spy={true}
+            smooth={true}
+            offset={-60}
+            className='cursor-pointer flex flex-col gap-2 items-center justify-center max-w-[250px] text-center transition duration-500 hover:scale-105'
           >
             <div className='w-[70px] h-[70px] rounded-[100%] border-2 border-white flex items-center justify-center'>
               <img
-                src={Service}
+                src={Contact}
                 alt='Rental/Bolting Services'
                 className='
                     w-[40px] h-[40px]'
@@ -69,7 +73,7 @@ export default function OurServices() {
             <div className='text-[#dddddd] text-[16px]'>
               {t('homepage.servicesOurDesc')}
             </div>
-          </a>
+          </LinkReact>
         </div>
       </div>
     </div>

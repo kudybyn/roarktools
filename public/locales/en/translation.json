@@ -24,5 +24,22 @@
       "contactUsDesc":"We will help with any of your questions",
       "servicesOur":"Rental/Bolting Services",
       "servicesOurDesc":"Renting and Bolting Services are available upon request."
+    },
+    "alert":{
+        "successAlert":"Message has been sent!"
+    },
+    "required":{
+       "type":"Request type is required",
+       "name":"Name is required",
+       "emailType":"Invalid email format",
+       "email":"Email is required",
+       "message":"Message is required"
+    },
+    "form":{
+    "requireType":"What type of request do you have?",
+    "name":"Your Name",
+    "email":"Your Email",
+    "message":"Message",
+    "submit":"Submit"
     }
 }

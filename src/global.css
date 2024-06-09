@@ -21,6 +21,15 @@ body {
    bottom: 0;
    animation: moveFromBottomToTop 1s ease-in-out infinite;
 }
+input:focus, textarea:focus input:focus-visible, textarea:focus-visible {
+  border-color: black !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+textarea{
+  resize: none !important;
+}
 
 
 @keyframes moveFromBottomToTop {

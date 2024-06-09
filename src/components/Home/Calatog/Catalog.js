@@ -20,7 +20,6 @@ export default function Catalog() {
     }
   }, [dispatch, i18n.language])
 
-  data = [...data, ...data, ...data, ...data]
 
   return (
     <>

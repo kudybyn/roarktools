@@ -4,6 +4,7 @@ import Catalog from './Calatog/Catalog'
 import { useTranslation } from 'react-i18next'
 import OurServices from './OurServices/OurServices'
 import ContactUs from './ContactUs/ContactUs'
+import {Element} from 'react-scroll';
 
 export default function Home() {
   const scrollToBottom = () => {
@@ -50,7 +51,11 @@ export default function Home() {
         <div className='bg-black'>
           <OurServices />
         </div>
+        <Element name="contacts">
+        <div className="bg-white" id='contacts'>
         <ContactUs />
+        </div>
+        </Element>
       </div>
     </MenuLayout>
   )

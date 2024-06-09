@@ -24,5 +24,21 @@
         "contactUsDesc":"Herhangi bir sorunuzda yardımcı olacağız.",
         "servicesOur":"Kiralama/Vida Hizmetleri",
         "servicesOurDesc":"Kiralama ve cıvata sıkma hizmetleri talep üzerine mevcuttur."
+      },
+      "alert":{
+        "successAlert": "Mesaj gönderildi!"
+      }
+      ,
+      "required":{    "type": "Talep türü gereklidir",
+      "name": "İsim gerekli",
+      "emailType": "Geçersiz e-posta formatı",
+      "email": "E-posta gereklidir",
+      "message": "Mesaj gereklidir"},
+      "form":{
+        "requireType": "Hangi tür bir talebiniz var?",
+        "name": "Adınız",
+        "email": "E-posta adresiniz",
+        "message": "Mesaj",
+        "submit": "Gönder"
       }
 }

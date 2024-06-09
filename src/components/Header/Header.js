@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import LogoImg from '../../assets/logo.png'
 import clsx from 'clsx'
 import { useTranslation } from 'react-i18next'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 const Header = ({ menu }) => {
   const { i18n } = useTranslation()
   const [activeLanguage, setActiveLanguage] = useState(i18n.language)
-  const [activePage, setActivePage] = useState('home')
   const languageList = ['en', 'pt', 'ru', 'ar', 'tr']
 
   const changeLanguage = (lng) => {

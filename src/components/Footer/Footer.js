@@ -7,9 +7,9 @@ const Footer = ({ menu }) => {
     <div className='bg-black w-full'>
       <div className='container mx-auto flex flex-col items-center'>
         <ul className='pt-3 flex gap-3 justify-center'>
-          {menu.map((linkData) => {
+          {menu.map((linkData,index) => {
             return (
-              <li className='text-white text-center font-normal text-base hover:text-redColor w-fit ease-out transition-all'>
+              <li key={index} className='text-white text-center font-normal text-base hover:text-redColor w-fit ease-out transition-all'>
                 <NavLink
                   to={linkData.link}
                   className={({ isActive }) =>
