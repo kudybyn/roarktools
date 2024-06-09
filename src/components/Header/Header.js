@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import LogoImg from '../../assets/logo.png'
 import clsx from 'clsx'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 const Header = ({ menu }) => {
   const { i18n } = useTranslation()
   const [activeLanguage, setActiveLanguage] = useState(i18n.language)
@@ -15,13 +16,18 @@ const Header = ({ menu }) => {
     <div className='bg-black fixed w-full z-20'>
       <div className='w-full flex container mx-auto items-center justify-between py-5 px-4 xl:px-5 sm:px-10 laptop:px-6'>
         <div className='flex gap-10 items-center'>
-          <img src={LogoImg} alt={'logo'} className='w-[200px] h-[60px]' loading='lazy'/>
+          <img
+            src={LogoImg}
+            alt={'logo'}
+            className='w-[200px] h-[60px]'
+            loading='lazy'
+          />
           <div className='md:block hidden'>
             <ul className='flex justify-between gap-3'>
               {menu.map((link) => {
                 return (
                   <li key={link.title}>
-                    <a
+                    <Link
                       onClick={() => setActivePage(link.title.toLowerCase())}
                       className={clsx(
                         activePage === link.title.toLowerCase()
@@ -29,10 +35,10 @@ const Header = ({ menu }) => {
                           : 'text-white',
                         'font-normal text-lg hover:text-redColor ease-out transition-all'
                       )}
-                      href={link.link}
+                      to={link.link}
                     >
                       {link.title}
-                    </a>
+                    </Link>
                   </li>
                 )
               })}
@@ -71,10 +77,10 @@ const Header = ({ menu }) => {
               </a>
             </div>
             <div className='flex gap-1'>
-              {languageList.map((language,index) => {
+              {languageList.map((language, index) => {
                 return (
                   <div
-                  key={index}
+                    key={index}
                     onClick={() => {
                       setActiveLanguage(language)
                       changeLanguage(language)
@@ -222,10 +228,10 @@ const BurgerMenu = ({ languageList, menu }) => {
             <div className='h-[1px] w-full bg-redColor mb-3' />
             <div className='flex gap-1'>
               {languageList &&
-                languageList.map((language,key) => {
+                languageList.map((language, key) => {
                   return (
                     <div
-                    key={key}
+                      key={key}
                       onClick={() => {
                         setActiveLanguage(language)
                         changeLanguage(language)
