@@ -4,23 +4,13 @@ import { useTranslation } from 'react-i18next';
 import clsx from 'clsx'
 import Map from "./Map/Map";
 import ContactImage from '../../assets/homepage/contact.svg'
+import PageHeader from 'components/common/PageHeader';
 
 export default function Contact(){
     const {t} = useTranslation();
     return(    <MenuLayout>
         <div className='w-full min-h-[100vh] pt-[100px] '>
-            <div className="bg-black w-full flex justify-center relative">
-                <div className="max-w-[1000px] h-[350px] md:h-auto px-6 flex w-full md:grid grid-cols-2 items-center w-full justify-center">
-                <div className="flex justify-center md:justify-start gap-4 items-center w-full relative z-10">
-            <h1 className="uppercase text-5xl text-white">{t('contactUs.contacts')}</h1>
-            <img src={ContactImage} className='w-[50px] h-[50px]' alt="contact us"/></div>
-                <div className="absolute top-0 left-0 w-full md:relative">
-                <div className="absolute w-full h-[350px] bg-gradient-to-r from-[rgba(0,0,0,0.2)] to-black"></div>
-                <div className="absolute w-full h-[350px] bg-gradient-to-l from-[rgba(0,0,0,0.2)] to-black"></div>
-                    <img src={"https://firebasestorage.googleapis.com/v0/b/roarktools-3c762.appspot.com/o/images%2FcontactsUs.jpg?alt=media&token=49441ae3-93e9-4dd4-9285-7f215659f710"}
-                alt="contact us page" className="w-full h-[350px] object-cover"/></div>
-                </div>
-            </div>
+            <PageHeader title={t('contactUs.contacts')} srcImage={"https://firebasestorage.googleapis.com/v0/b/roarktools-3c762.appspot.com/o/images%2FcontactsUs.jpg?alt=media&token=49441ae3-93e9-4dd4-9285-7f215659f710"} srcLogo={ContactImage}/>
             <div className="w-full px-6 flex justify-center pt-16"><h3 className="
             font-bold text-[42px]">{t('contactUs.questions')} <span className="text-redColor">{t('contactUs.or')}</span> {t('contactUs.inquiries')}</h3></div>
             <ContactUsMail title={false}/>

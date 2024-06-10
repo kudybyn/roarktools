@@ -9,6 +9,7 @@ import Contact from '../Contact/Contact'
 import { useSelector } from 'react-redux'
 import { lazy } from 'react'
 import AdminLayout from './AdminLayout'
+import Resourses from 'components/Resourses/Resourses'
 
 const SingInAdminPage = lazy(() => import('./SingInAdminPage'))
 
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/contacts' element={<Contact />} />
+          <Route path='/resources' element={<Resourses/>}/>
           <Route path='/admin' element={<SingInAdminPage />} />
           <Route path='/admin/*' element={<AdminLayout />} />
           <Route
