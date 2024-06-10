@@ -14,6 +14,7 @@
         "contactUs": "اتصل بنا"
     },
     "homepage":{
+        "viewBlogs": "عرض جميع المدونات",
         "blogs": "المدونات",
         "readMore": "اقرأ المزيد",
         "aboutUs": "عن ",

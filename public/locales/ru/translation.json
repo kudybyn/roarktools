@@ -14,6 +14,7 @@
         "contactUs": "Свяжитесь с нами"
     },
     "homepage":{
+      "viewBlogs": "Посмотреть все блоги",
       "blogs": "Блоги",
       "readMore": "Читать далее",
       "aboutUs": "О ",

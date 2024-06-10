@@ -64,6 +64,15 @@ export default function HomepageBlogs(){
               </>
             )}
             </div>
+            <div className='flex w-full justify-center'>
+            <Link
+              to='/blog'
+              className='rounded-xl px-6 py-4 bg-black text-white
+                text-[21px] transition duration-500 hover:scale-105'
+            >
+              {t('homepage.viewBlogs')}
+            </Link>
+          </div>
             </div>
             </>
     )
