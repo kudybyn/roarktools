@@ -11,7 +11,7 @@ export default function OurServices() {
     <div className='container mx-auto w-full py-16 px-6 flex justify-center'>
       <div className='w-full max-w-[1250px] flex flex-col items-center justify-center gap-16'>
         <h3 className='uppercase text-white text-5xl'>
-          {t('homepage.services')}
+          {t('homepage.services')}<span className="text-[rgba(255,0,0)]">{t('homepage.servicesSecondary')}</span>
         </h3>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6 items-start'>
           <Link

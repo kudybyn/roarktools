@@ -14,11 +14,17 @@
         "contactUs": "Contact Us"
     },
     "homepage":{
+        "blogs":"Blogs",
+        "readMore":"Read More",
+        "aboutUs":"About ",
+        "aboutUsSecondary":"us",
+        "aboutUsDesc":"Roark Tools is the leader in dependable, durable and precise hydraulic and pneumatic torque tools. Decades of experience have helped us create industry leading tools that are accurate, affordable & built to last. We take pride in quickly delivering quality hydraulic and pneumatic torque tools at reasonable prices.",
       "catalog":"Catalog",
       "title":"your solution to the problem",
       "viewProjects":"View All Products",
       "products":"Products",
-      "services":"OUR SERVICES",
+      "services":"OUR ",
+      "servicesSecondary":"SERVICES",
       "ourProducts":"Our Products",
       "ourProductsDesc":"Roark Tools Provides heavy industrial bolting equipment for purchase or rent.",
       "contactUsDesc":"We will help with any of your questions",

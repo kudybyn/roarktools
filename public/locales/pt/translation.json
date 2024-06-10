@@ -14,11 +14,17 @@
         "contactUs": "Fale Conosco"
     },
     "homepage":{
+        "blogs": "Blogs",
+        "readMore": "Leia Mais",
+        "aboutUs": "Sobre ",
+        "aboutUsSecondary": "nós",
+        "aboutUsDesc": "A Roark Tools é líder em ferramentas hidráulicas e pneumáticas precisas, duráveis e confiáveis. Décadas de experiência nos ajudaram a criar ferramentas líderes da indústria que são precisas, acessíveis e feitas para durar. Nos orgulhamos de entregar rapidamente ferramentas de torque hidráulicas e pneumáticas de qualidade a preços razoáveis.",
         "catalog":"Catálogo",
         "title":"sua solução para o problema",
         "viewProjects":"Ver Todos os Produtos",
         "products":"Produtos",
-        "services":"NOSSOS SERVIÇOS",
+        "services": "NOSSOS ",
+        "servicesSecondary": "SERVIÇOS",
         "ourProducts":"Nossos Produtos",
         "ourProductsDesc":"A Roark Tools oferece equipamentos de fixação industrial pesada para compra ou aluguel.",
         "contactUsDesc":"Nós ajudaremos com qualquer uma de suas perguntas.",

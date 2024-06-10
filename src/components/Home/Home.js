@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next'
 import OurServices from './OurServices/OurServices'
 import ContactUs from './ContactUs/ContactUs'
 import {Element} from 'react-scroll';
+import HomepageInfo from "./HomepageInfo/HomepageInfo";
+import HomepageBlogs from "./HomepageBlogs/HomepageBlogs";
 
 export default function Home() {
   const scrollToBottom = () => {
@@ -56,6 +58,12 @@ export default function Home() {
         <ContactUs />
         </div>
         </Element>
+        <div className="bg-white">
+           <HomepageInfo/>
+        </div>
+        <div className="bg-white container mx-auto">
+           <HomepageBlogs/>
+        </div>
       </div>
     </MenuLayout>
   )

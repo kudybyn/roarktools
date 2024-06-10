@@ -14,11 +14,17 @@
         "contactUs": "Bize Ulaşın"
     },
     "homepage":{
+      "blogs": "Bloglar",
+      "readMore": "Daha Fazla Oku",
+      "aboutUs": "Hakkında ",
+      "aboutUsSecondary": "biz",
+      "aboutUsDesc": "Roark Tools, güvenilir, dayanıklı ve hassas hidrolik ve pnömatik tork aletlerinde liderdir. Onlarca yıllık deneyim, endüstri lideri, doğru, uygun fiyatlı ve dayanıklı aletler oluşturmamıza yardımcı oldu. Kaliteli hidrolik ve pnömatik tork aletlerini makul fiyatlarla hızlı bir şekilde teslim etmekle gurur duyuyoruz.",
         "catalog":"Katalog",
         "title":"soruna çözümünüz",
         "viewProjects":"Tüm Ürünleri Görüntüle",
         "products":"Ürünler",
-        "services":"HİZMETLERİMİZ",
+        "services": "HİZMETLERİMİZ ",
+        "servicesSecondary": "HİZMETLER",
         "ourProducts":"Ürünlerimiz",
         "ourProductsDesc":"Roark Tools ağır endüstriyel cıvata ekipmanları satış veya kiralama hizmeti sunar.",
         "contactUsDesc":"Herhangi bir sorunuzda yardımcı olacağız.",

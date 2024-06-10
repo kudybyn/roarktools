@@ -12,7 +12,6 @@ export default function Catalog() {
   const dispatch = useDispatch()
   let data = useSelector((state) => state.catalog.data)
   const loading = useSelector((state) => state.catalog.loading)
-  const error = useSelector((state) => state.catalog.error)
 
   useEffect(() => {
     if (i18n.language) {
@@ -23,10 +22,9 @@ export default function Catalog() {
 
   return (
     <>
-      {!error && (
-        <div className='w-full py-16 flex flex-col px-6 gap-12'>
+        <div className='w-full py-16 flex flex-col px-6 md:px-12 gap-12'>
           <div className='flex gap-4 items-center'>
-            <h2 className='text-5xl'>{t('homepage.products')}</h2>{' '}
+            <h2 className='text-5xl uppercase'>{t('homepage.products')}</h2>{' '}
             <img src={Bolt} alt='bolt' className='w-[50px] h-[50px]' />
           </div>
           <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10'>
@@ -78,7 +76,6 @@ export default function Catalog() {
             </Link>
           </div>
         </div>
-      )}
     </>
   )
 }
