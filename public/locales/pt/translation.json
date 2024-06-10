@@ -46,5 +46,15 @@
         "email": "Seu e-mail",
         "message": "Mensagem",
         "submit": "Enviar"
-    }
+    },
+    "contactUs":{
+        "contacts": "Contatos",
+        "questions": "PERGUNTAS ",
+        "or": "OU ",
+        "inquiries": "PERGUNTAS?",
+        "email": "E-mail",
+        "phone": "Telefone",
+        "fax": "Fax",
+        "address": "Endereço"
+            }
 }

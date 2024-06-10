@@ -48,5 +48,15 @@
     "email":"Your Email",
     "message":"Message",
     "submit":"Submit"
+    },
+    "contactUs":{
+"contacts":"Contacts",
+"questions":"QUESTIONS ",
+"or":"OR ",
+"inquiries":"INQUIRIES?",
+"email":"Email",
+"phone":"Phone",
+"fax":"Fax",
+"address":"Address"
     }
 }

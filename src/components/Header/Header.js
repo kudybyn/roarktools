@@ -3,6 +3,7 @@ import LogoImg from '../../assets/logo.png'
 import clsx from 'clsx'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
+
 const Header = ({ menu }) => {
   const { i18n } = useTranslation()
   const [activeLanguage, setActiveLanguage] = useState(i18n.language)
@@ -15,12 +16,14 @@ const Header = ({ menu }) => {
     <div className='bg-black fixed w-full z-20'>
       <div className='w-full flex container mx-auto items-center justify-between py-5 px-4 xl:px-5 sm:px-10 laptop:px-6'>
         <div className='flex gap-10 items-center'>
+          <NavLink to="/">
           <img
             src={LogoImg}
             alt={'logo'}
             className='w-[200px] h-[60px]'
             loading='lazy'
           />
+          </NavLink>
           <div className='md:block hidden'>
             <ul className='flex justify-between gap-3'>
               {menu.map((link) => {

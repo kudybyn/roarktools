@@ -47,5 +47,15 @@
         "email": "E-posta adresiniz",
         "message": "Mesaj",
         "submit": "Gönder"
-      }
+      },
+      "contactUs":{
+        "contacts": "İletişim Bilgileri",
+        "questions": "SORULAR ",
+        "or": "VEYA ",
+        "inquiries": "SORULAR?",
+        "email": "E-posta",
+        "phone": "Telefon",
+        "fax": "Faks",
+        "address": "Adres"
+            }
 }
