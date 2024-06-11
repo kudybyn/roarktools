@@ -1,23 +1,13 @@
 import React, { useState } from 'react'
-import {
-  doc,
-  getDoc,
-  updateDoc,
-  arrayUnion,
-  getDocs,
-  collection,
-} from 'firebase/firestore'
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
-import db, { firebaseDb, fireBaseStorage } from '../../../../firebase/config'
+import { doc, getDoc, updateDoc } from 'firebase/firestore'
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+import { firebaseDb, fireBaseStorage } from '../../../../firebase/config'
 import { getAuth } from 'firebase/auth'
 
 const UploadAndFetchComponent = ({ id: catalogId, setRerenderList }) => {
   const [file, setFiles] = useState(null)
   const [uploading, setUploading] = useState(false)
-  const [uploadError, setUploadError] = useState(null)
   const [imageUrl, setImageUrl] = useState('')
-  const [catalogItem, setCatalogItem] = useState(null)
-  const [fetchError, setFetchError] = useState(null)
 
   const auth = getAuth()
 
@@ -39,7 +29,6 @@ const UploadAndFetchComponent = ({ id: catalogId, setRerenderList }) => {
     }
 
     setUploading(true)
-    setUploadError(null)
 
     auth.currentUser
       .getIdToken(true)
@@ -57,7 +46,6 @@ const UploadAndFetchComponent = ({ id: catalogId, setRerenderList }) => {
             console.log('Progress ' + progress)
           },
           (error) => {
-            setUploadError(error.message)
             setUploading(false)
           },
           () => {
@@ -70,7 +58,6 @@ const UploadAndFetchComponent = ({ id: catalogId, setRerenderList }) => {
         )
       })
       .catch((error) => {
-        setUploadError('Authorisation Error: ' + error.message)
         setUploading(false)
       })
   }
@@ -93,12 +80,6 @@ const UploadAndFetchComponent = ({ id: catalogId, setRerenderList }) => {
                 : [{ link: newImageUrl }],
             }
           }
-          console.log(
-            '---',
-            catalogData.id.toString() === catalogId.toString(),
-            catalogData.id.toString(),
-            catalogId.toString()
-          )
           return catalogData
         })
 
