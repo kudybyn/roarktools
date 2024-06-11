@@ -1,17 +1,16 @@
-import { NavLink, Link, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import LogoImg from '../../../../assets/logo.png'
 import { adminRoutes } from '../AdminRoutes/AdminRoutes'
-function LeftSidebar() {
-  const location = useLocation()
 
+function LeftSidebar() {
   return (
-    <div className='h-screen px-5 py-7 z-30 bg-black flex flex-col items-center'>
+    <div className='h-full px-5 py-7 z-30 bg-black flex flex-col items-center'>
       <img
         className='mask mask-squircle h-12'
         src={LogoImg}
         alt='DashWind Logo'
       />
-      <ul className='pt-2 w-full px-4 min-h-full text-base-content'>
+      <ul className='pt-2 w-full px-4 text-base-content'>
         {adminRoutes.map((route, k) => {
           return (
             <li

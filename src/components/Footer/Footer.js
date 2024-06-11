@@ -9,7 +9,10 @@ const Footer = ({ menu }) => {
         <ul className='pt-3 flex gap-3 justify-center'>
           {menu.map((linkData,index) => {
             return (
-              <li key={index} className='text-white text-center font-normal text-base hover:text-redColor w-fit ease-out transition-all'>
+              <li
+                key={linkData.title}
+                className='text-white text-center font-normal text-base hover:text-redColor w-fit ease-out transition-all'
+              >
                 <NavLink
                   to={linkData.link}
                   className={({ isActive }) =>

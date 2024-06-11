@@ -10,7 +10,7 @@ const SingInAdminPage = () => {
     email: '',
     password: '',
   })
-  // const { push } = useRouter()
+  const navigate = useNavigate()
   const auth = getAuth()
   const dispatch = useDispatch()
 
@@ -19,7 +19,8 @@ const SingInAdminPage = () => {
     signInWithEmailAndPassword(auth, userData.email, userData.password)
       .then((userCredential) => {
         const user = userCredential.user
-        // push('/admin/catalog')
+        dispatch(setAuthAccessToken(user.accessToken))
+        navigate('/admin/catalog')
       })
       .catch((error) => {
         const errorCode = error.code
