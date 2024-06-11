@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 
 const Header = ({ menu }) => {
   const { i18n } = useTranslation()
-  const [activeLanguage, setActiveLanguage] = useState(i18n.language)
+  const [activeLanguage, setActiveLanguage] = useState(i18n.language||"en")
   const languageList = ['en', 'pt', 'ru', 'ar', 'tr']
 
   const changeLanguage = (lng) => {

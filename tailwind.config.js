@@ -34,6 +34,9 @@ module.exports = {
         black: '#151718',
         redColor: 'red',
       },
+      gridTemplateColumns: {
+        "1fr2fr1fr":"1fr 2fr 1fr"
+      }
     },
   },
   plugins: [require('@tailwindcss/forms')],

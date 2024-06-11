@@ -3,17 +3,18 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { collection, getDocs } from 'firebase/firestore';
 import db from '../../firebase/config';
 
-export const fetchData = createAsyncThunk('blog/fetchData', async ({collectionName,type}) => {
+export const fetchData = createAsyncThunk('resourses/fetchData', async ({collectionName,type}) => {
   const querySnapshot = await getDocs(collection(db, collectionName));
   const fetchedData = querySnapshot.docs.map(doc => {
+    const result = doc.data()[type]
     return({
-    ...doc.data()[type][0]
+      ...result
   })});
   return fetchedData;
 });
 
-const blogSlice = createSlice({
-  name: 'blog',
+const resoursesSlice = createSlice({
+  name: 'resourses',
   initialState: {
     data: [],
     loading: false,
@@ -37,4 +38,4 @@ const blogSlice = createSlice({
   },
 });
 
-export default blogSlice.reducer;
+export default resoursesSlice.reducer;

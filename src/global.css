@@ -32,6 +32,10 @@ textarea{
 }
 
 
+input:checked{
+  color: red;
+}
+
 @keyframes moveFromBottomToTop {
   0% {
     transform: translateY(-1.5rem);
