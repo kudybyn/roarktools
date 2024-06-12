@@ -4,16 +4,17 @@ import AdminHeader from '../AdminPanel/components/AdminHeader/AdminHeader'
 import AdminSuspenseContent from '../AdminPanel/components/AdminSuspenseContent/AdminSuspenseContent'
 import { Route, Routes } from 'react-router-dom'
 import { adminRoutes } from '../AdminPanel/components/AdminRoutes/AdminRoutes'
+import CatalogItemEditor from '../AdminPanel/CatalogItemEditor/CatalogItemEditor'
 
 const AdminLayout = () => {
   return (
     <div className='flex h-screen'>
-      <div className='w-1/5 h-screen'>
+      <div className='w-1/5 h-screen min-w-[280px]'>
         <LeftSidebar />
       </div>
       <div className='drawer-content flex flex-col w-4/5'>
         <AdminHeader />
-        <main className='flex-1 overflow-y-auto md:pt-4 pt-4 px-6'>
+        <main className=''>
           <Suspense fallback={<AdminSuspenseContent />}>
             <Routes>
               {adminRoutes.map((route, key) => {
@@ -26,6 +27,10 @@ const AdminLayout = () => {
                   />
                 )
               })}
+              <Route
+                path={'catalog/:id'}
+                element={<CatalogItemEditor />}
+              ></Route>
               <Route
                 path='*'
                 element={

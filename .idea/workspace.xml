@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3efff3eb-dd0f-439c-a89a-203155d2e211" name="Changes" comment="feat: add base admin layout; add admin sidebar; add admin registration page">
+      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/CatalogItemEditor/components/AdminProductName/AdminProductName.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/CatalogItemEditor/components/LanguageTabs/LanguateTabs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/LeftSidebar/LeftSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/LeftSidebar/LeftSidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/AdminLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/AdminLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/SingInAdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/SingInAdminPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/OurServices/OurServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/OurServices/OurServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/CatalogItemEditor/CatalogItemEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/CatalogItemEditor/CatalogItemEditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/CatalogItemEditor/components/UploadImageComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/CatalogItemEditor/components/UploadImageComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/slices/CatalogSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/slices/CatalogSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,14 +26,12 @@
     &quot;assignee&quot;: &quot;kudybyn&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="fcc322e8-29fe-4fc4-972c-54aa57be6b4e" />
-        <option name="url" value="https://github.com/kudybyn/roarktools.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kudybyn/roarktools.git&quot;,
+    &quot;accountId&quot;: &quot;fcc322e8-29fe-4fc4-972c-54aa57be6b4e&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -51,31 +46,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/oleksandr/Documents/Other Projects/roarktools&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/oleksandr/Documents/Other Projects/roarktools/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Subversion.SSH&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/oleksandr/Documents/Other Projects/roarktools",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/oleksandr/Documents/Other Projects/roarktools/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/AdminPanel/CatalogItemEditor" />
+      <recent name="$PROJECT_DIR$/src/components/AdminPanel/components/AdminCatalog" />
       <recent name="$PROJECT_DIR$/src/redux/slices" />
       <recent name="$PROJECT_DIR$/src/components/AdminPanel/components" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/assets" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunManager">
@@ -95,6 +90,13 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17890.13" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
@@ -109,7 +111,15 @@
       <workItem from="1717601926678" duration="2180000" />
       <workItem from="1717613694980" duration="3375000" />
       <workItem from="1717659085950" duration="5945000" />
-      <workItem from="1717696314020" duration="50706000" />
+      <workItem from="1717696314020" duration="52516000" />
+      <workItem from="1717940996424" duration="711000" />
+      <workItem from="1717941892878" duration="3018000" />
+      <workItem from="1717949577854" duration="23911000" />
+      <workItem from="1718110223313" duration="223000" />
+      <workItem from="1718110590376" duration="2103000" />
+      <workItem from="1718112716039" duration="293000" />
+      <workItem from="1718113337018" duration="2984000" />
+      <workItem from="1718127726212" duration="11518000" />
     </task>
     <servers />
   </component>
