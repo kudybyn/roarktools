@@ -59,6 +59,14 @@
         "phone": "الهاتف",
         "fax": "الفاكس",
         "address": "العنوان"
+    },
+    "resourses":{
+        "resourses": "الموارد",
+        "search": "بحث",
+        "searchPlaceholder": "اكتب المورد...",
+        "select": "اختر الفئة",
+        "brochures": "الكتيبات",
+        "manuals": "الأدلة"
     }
 }
 

@@ -56,5 +56,13 @@
         "phone": "Telefone",
         "fax": "Fax",
         "address": "Endereço"
+            },
+            "resourses":{
+                "resourses": "Recursos",
+                "search": "Pesquisar",
+                "searchPlaceholder": "Digite o recurso...",
+                "select": "Selecione a categoria",
+                "brochures": "Brochuras",
+                "manuals": "Manuais"
             }
 }

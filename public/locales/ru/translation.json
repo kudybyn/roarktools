@@ -56,5 +56,13 @@
       "phone": "Телефон",
       "fax": "Факс",
       "address": "Адрес"
-          }
+          },
+          "resourses":{
+            "resourses": "Ресурсы",
+            "search": "Поиск",
+            "searchPlaceholder": "Введите ресурс...",
+            "select": "Выберите категорию",
+            "brochures": "Брошюры",
+            "manuals": "Руководства"
+        }
 }

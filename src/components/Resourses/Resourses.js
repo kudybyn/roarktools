@@ -17,7 +17,6 @@ export default function Resourses() {
     let data = useSelector((state) => state.resourses.data[0])
     const loading = useSelector((state) => state.resourses.loading)
   
-    console.log(i18n.language)
     useEffect(() => {
       if (i18n.language) {
         dispatch(fetchData({ collectionName: i18n.language, type: 'resourses' }))
@@ -43,7 +42,7 @@ export default function Resourses() {
 
     let brochuresLocal = []
     let manualsLocal = []
-    if(data){
+    if(data && data.brochures && data.manuals){
         const {brochures,manuals} = data;
         brochuresLocal=brochures.filter((brochure)=>brochure.title.toLowerCase().includes(tempSearch.toLowerCase()))
         manualsLocal=manuals.filter((manual)=>manual.title.toLowerCase().includes(tempSearch.toLowerCase()))
@@ -53,7 +52,7 @@ export default function Resourses() {
     return (
         <MainLayout>
             <div className='w-full min-h-[100vh] pt-[100px]'>
-                <PageHeader title={"Resourses"} 
+                <PageHeader title={t('resourses.resourses')} 
                     srcLogo={ResoursesImage}
                     srcImage={"https://firebasestorage.googleapis.com/v0/b/roarktools-3c762.appspot.com/o/images%2Fresourses.png?alt=media&token=0c6b65b8-6c83-4920-a13e-2d8daca3c272"}
                 />
@@ -62,9 +61,9 @@ export default function Resourses() {
                     <div className="container h-full min-h-[100vh] px-6 md:px-12 py-12 lg:flex flex-col gap-8 w-full">
                         <div className="grid grid-cols-1 lg:grid-cols-1fr2fr1fr gap-8  items-start w-full">
                             <div className="flex gap-4 items-center">
-                                <span className="text-[27px]">Search</span>
+                                <span className="text-[27px]">{t('resourses.search')}</span>
                                 <div className="flex gap-2 items-center border-2 border-black rounded-xl px-2 py-1 w-full justify-between">
-                                    <input placeholder="Type resourse..."
+                                    <input placeholder={t('resourses.searchPlaceholder')}
                                     onChange={(e)=>setTempSearch(e.currentTarget.value)}
                                     value={tempSearch} style={{border:'none'}} className="rounded-xl"/>
                                     <div className="w-[20px] h-[20px]"><img src={Search} alt="search resourse" className="w-[20px] h-[20px]"/></div>
@@ -73,17 +72,17 @@ export default function Resourses() {
                             <div className="flex gap-4 flex-wrap">
                                 <div className="relative">
                                     <button className="flex gap-2 items-center px-3 py-2 border-2 border-black rounded-xl" onClick={() => onOpenFilterCategory(!openFilterCategory)}>
-                                        <span className="text-[21px]">Select category</span>
+                                        <span className="text-[21px]">{t('resourses.select')}</span>
                                         <img src={ArrowDown} className={`w-[20px] h-[20px] ${openFilterCategory ? "rotate-180" : ""} transition duration-300`} alt="open filter category"/>
                                     </button>
                                     {openFilterCategory && (
                                         <div className="absolute w-full bg-white shadow-lg rounded-xl">
                                             <div className="px-4 py-4 font-semibold flex justify-between items-center">
-                                                <span>Brochures</span>
+                                                <span>{t('resourses.brochures')}</span>
                                                 <input type='checkbox' onChange={() => onChangeCategories('brochures')} checked={selectedCategories.includes('brochures')} className={`border-2 cursor-pointer`}/>
                                             </div>
                                             <div className="px-4 py-4 font-semibold flex justify-between items-center">
-                                                <span>Manuals</span>
+                                                <span>{t('resourses.manuals')}</span>
                                                 <input type='checkbox' onChange={() => onChangeCategories('manuals')} checked={selectedCategories.includes('manuals')} className={`border-2 cursor-pointer `}/>
                                             </div>
                                         </div>
@@ -93,7 +92,7 @@ export default function Resourses() {
                                                 <div key={category} className="capitalize flex gap-1 text-redColor items-center px-3
                                                 h-max
                                                  py-2 border-2 border-redColor rounded-xl">
-                                                    <span className="text-[21px]">{category}</span>
+                                                    <span className="text-[21px]">{category==="brochures"?t('resourses.brochures'):t('resourses.manuals')}</span>
                                                     <button
                                                     onClick={() => onChangeCategories(category)}><img src={Close} alt="delete category"  className="w-[30px] h-[30px]"/></button></div>
                                             ))}
@@ -103,7 +102,7 @@ export default function Resourses() {
                             {brochuresLocal && selectedCategories.includes('brochures') && brochuresLocal.length>0 && 
                             <>
                             <div className='w-full flex justify-center'><h4 className="uppercase text-5xl text-black py-8">
-                                Brochures
+                                {t('resourses.brochures')}
                                 </h4></div>
                             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12 py-12">
                               {loading? 
@@ -131,7 +130,7 @@ export default function Resourses() {
                             {manualsLocal && selectedCategories.includes('manuals') && manualsLocal.length>0 && 
                             <>
                             <div className='w-full flex justify-center'><h4 className="uppercase text-5xl text-black pb-8">
-                                Manuals
+                               {t('resourses.manuals')}
                                 </h4></div>
                             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12 py-12">
                               {loading? 

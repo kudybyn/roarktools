@@ -57,5 +57,13 @@
         "phone": "Telefon",
         "fax": "Faks",
         "address": "Adres"
-            }
+            },
+            "resourses":{
+              "resourses": "Kaynaklar",
+              "search": "Ara",
+              "searchPlaceholder": "Kaynak yazın...",
+              "select": "Kategori seçin",
+              "brochures": "Broşürler",
+              "manuals": "Kılavuzlar"
+          }
 }
