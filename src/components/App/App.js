@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux'
 import { lazy } from 'react'
 import AdminLayout from './AdminLayout'
 import Resourses from 'components/Resourses/Resourses'
+import Blog from "../Blog/Blog";
 
 const SingInAdminPage = lazy(() => import('./SingInAdminPage'))
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/resources' element={<Resourses/>}/>
           <Route path='/admin' element={<SingInAdminPage />} />
           <Route path='/admin/*' element={<AdminLayout />} />
+          <Route path='/blog' element={<Blog/>}/>
           <Route
             path='/admin/*'
             element={

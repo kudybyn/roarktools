@@ -65,5 +65,12 @@
               "select": "Kategori seçin",
               "brochures": "Broşürler",
               "manuals": "Kılavuzlar"
+          },
+          "blogs":{
+            "title": "Bloglar",
+            "filterBy": "Filtrele:",
+            "all": "Tümü",
+            "new": "Yeni",
+            "old": "Eski"
           }
 }

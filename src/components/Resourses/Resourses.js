@@ -3,11 +3,10 @@ import ResoursesImage from "../../assets/homepage/resourses.svg";
 import { useTranslation } from "react-i18next";
 import PageHeader from "../common/PageHeader";
 import Search from "../../assets/filter/search.svg";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import ArrowDown from "../../assets/resourses/arrowDown.svg";
 import Close from "../../assets/homepage/close-black.svg";
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
 import { fetchData } from '../../redux/slices/ResoursesSlice';
 import { RectangularSkeleton, LinesSkeleton } from '../common/skeletons'
 
