@@ -7,9 +7,9 @@ export const fetchData = createAsyncThunk('blog/fetchData', async ({collectionNa
   const querySnapshot = await getDocs(collection(db, collectionName));
   const fetchedData = querySnapshot.docs.map(doc => {
     return({
-    ...doc.data()[type][0]
+    ...doc.data()[type]
   })});
-  return fetchedData;
+  return Object.values(fetchedData);
 });
 
 const blogSlice = createSlice({

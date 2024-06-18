@@ -23,6 +23,7 @@ export default function HomepageBlogs(){
     }, [dispatch, i18n.language])
 
     
+    data = Object.values(data[0])
 
     return(
         <>

@@ -66,5 +66,12 @@
         "select":"Select category",
         "brochures":"Brochures",
         "manuals":"Manuals"
+    },
+    "blogs":{
+       "title":"Blogs",
+       "filterBy":"Filter by:",
+       "all":"All",
+       "new":"New",
+       "old":"Old"
     }
 }
