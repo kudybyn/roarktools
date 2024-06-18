@@ -4,7 +4,9 @@ import AdminHeader from '../AdminPanel/components/AdminHeader/AdminHeader'
 import AdminSuspenseContent from '../AdminPanel/components/AdminSuspenseContent/AdminSuspenseContent'
 import { Route, Routes } from 'react-router-dom'
 import { adminRoutes } from '../AdminPanel/components/AdminRoutes/AdminRoutes'
-import CatalogItemEditor from '../AdminPanel/CatalogItemEditor/CatalogItemEditor'
+import CatalogItemEditor from '../AdminPanel/components/CatalogItemEditor/CatalogItemEditor'
+import BroshuresListEditItem from '../AdminPanel/components/AdminResources/components/BrochuresList/BroshuresListEditItem'
+import BrochureAddItem from '../AdminPanel/components/AdminResources/components/BrochuresList/BroshureAddItem'
 
 const AdminLayout = () => {
   return (
@@ -32,14 +34,21 @@ const AdminLayout = () => {
                 element={<CatalogItemEditor />}
               ></Route>
               <Route
+                path={'resources/:id'}
+                element={<BroshuresListEditItem />}
+              ></Route>
+              <Route
+                path={'resources/add'}
+                element={<BrochureAddItem />}
+              ></Route>
+
+              <Route
                 path='*'
                 element={
                   <div className='h-[calc(100vh-100px)] w-full flex items-center justify-center'>
                     <div className='hero-content text-accent text-center'>
                       <div className='max-w-md'>
-                        <h1 className='text-5xl font-bold'>
-                          404 - Not Found dgdgf as
-                        </h1>
+                        <h1 className='text-5xl font-bold'>404 - Not Found</h1>
                       </div>
                     </div>
                   </div>

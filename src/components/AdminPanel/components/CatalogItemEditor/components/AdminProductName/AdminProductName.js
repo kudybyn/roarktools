@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import clsx from 'clsx'
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
-import { firebaseDb } from '../../../../../firebase/config'
+import { firebaseDb } from '../../../../../../firebase/config'
 
 const AdminProductName = ({
   activeLanguage,
@@ -95,7 +95,7 @@ const AdminProductName = ({
             )}
             onClick={() => canselHandler()}
           >
-            Cansel
+            Cancel
           </button>
         </div>
       </div>

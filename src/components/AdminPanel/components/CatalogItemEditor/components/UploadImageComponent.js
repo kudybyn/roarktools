@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { firebaseDb, fireBaseStorage } from '../../../../firebase/config'
+import { firebaseDb, fireBaseStorage } from '../../../../../firebase/config'
 import { getAuth } from 'firebase/auth'
 
 const UploadAndFetchComponent = ({ id: catalogId, setRerenderList }) => {

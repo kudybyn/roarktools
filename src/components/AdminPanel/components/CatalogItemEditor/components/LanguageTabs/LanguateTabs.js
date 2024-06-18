@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { doc, getDoc } from 'firebase/firestore'
-import db from '../../../../../firebase/config'
+import db from '../../../../../../firebase/config'
 
 const LanguageTabs = ({
   tabs,
@@ -9,6 +9,7 @@ const LanguageTabs = ({
   catalogId,
   subField,
   setRerenderList,
+  isAddItem,
 }) => {
   const [activeTab, setActiveTab] = React.useState(tabs[0])
   const [products, setProducts] = React.useState([])
@@ -37,12 +38,14 @@ const LanguageTabs = ({
     },
   ]
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getListOnItems()
-      setProducts(data)
-    }
+    if (!isAddItem) {
+      const fetchData = async () => {
+        const data = await getListOnItems()
+        setProducts(data)
+      }
 
-    fetchData()
+      fetchData()
+    }
   }, [rerender])
 
   console.log('rerender', rerender)
@@ -67,7 +70,6 @@ const LanguageTabs = ({
         )
 
         if (catalogItem) {
-          console.log('Found catalog item:', catalogItem)
           return {
             data: catalogItem[subField],
             collectionName: collectionName,
@@ -88,8 +90,6 @@ const LanguageTabs = ({
     }
   }
 
-  console.log('products', products)
-
   return (
     <div className='w-full'>
       <div className='flex gap-1 my-2'>
@@ -104,7 +104,7 @@ const LanguageTabs = ({
               )}
               onClick={() => {
                 if (!isSaveChanges) {
-                  setActiveTab(index)
+                  setActiveTab(tab)
                 }
               }}
             >

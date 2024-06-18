@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   fetchCatalogDataById,
   fetchData,
-} from '../../../redux/slices/CatalogSlice'
+} from '../../../../redux/slices/CatalogSlice'
 import { useParams } from 'react-router-dom'
 import UploadAndFetchComponent from './components/UploadImageComponent'
-import db, { firebaseDb } from '../../../firebase/config'
+import db, { firebaseDb } from '../../../../firebase/config'
 import { collection, doc, getDoc, getDocs, updateDoc } from 'firebase/firestore'
 import LanguageTabs from './components/LanguageTabs/LanguateTabs'
 import AdminProductName from './components/AdminProductName/AdminProductName'
@@ -80,6 +80,15 @@ const CatalogItemEditor = () => {
           >
             <AdminProductName />
           </LanguageTabs>
+        </div>
+        <div className='py-2 px-5'>
+          <div className='text-xl'>Product Images:</div>
+          <LanguageTabs
+            setRerenderList={() => setRerenderList((prev) => !prev)}
+            subField={'title'}
+            tabs={['en', 'ar', 'pt', 'ru', 'tr']}
+            catalogId={params.id.toString()}
+          ></LanguageTabs>
         </div>
         {itemData && !loading && (
           <div className='py-2 px-5'>
