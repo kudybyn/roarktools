@@ -42,7 +42,6 @@ const AdminProductName = ({
       if (docSnapshot.exists()) {
         const document = docSnapshot.data()
         const documentCatalogs = document.calatog
-        console.log('documentCatalogs', data.catalogId)
         const updatedCatalogsList = documentCatalogs.map((catalogData) => {
           if (catalogData.id.toString() === data.catalogId.toString()) {
             return {
@@ -52,7 +51,6 @@ const AdminProductName = ({
           }
           return catalogData
         })
-        console.log('updatedCatalogsList', updatedCatalogsList)
         await updateDoc(docRef, { calatog: updatedCatalogsList })
         setRerender()
         prevValue.current = productName

@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const BrochuresLinks = ({ setBrochuresLinks }) => {
+const BrochuresLinks = ({ setBrochuresLinks, link: prevLink }) => {
   const [link, setLink] = React.useState('')
+
+  useEffect(() => {
+    if (prevLink) {
+      setLink(prevLink)
+    }
+  }, [prevLink])
 
   const onChangeBrochuresTitle = (e) => {
     const value = e.target.value

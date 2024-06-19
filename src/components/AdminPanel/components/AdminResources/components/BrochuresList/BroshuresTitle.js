@@ -14,9 +14,9 @@ const BroshuresTitle = ({
         setProductName(title.title)
       }
     }
-  }, [activeLanguage])
+  }, [activeLanguage, brochuresTitle])
 
-  const onChcngeBroshuresTitle = (e) => {
+  const onChangeRestitutional = (e) => {
     const value = e.target.value
     setBrochuresTitle(activeLanguage, value)
     setProductName(value)
@@ -27,7 +27,7 @@ const BroshuresTitle = ({
       <input
         className='w-full'
         value={productName}
-        onChange={onChcngeBroshuresTitle}
+        onChange={onChangeRestitutional}
       />
     </div>
   )

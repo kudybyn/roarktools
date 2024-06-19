@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { getAuth } from 'firebase/auth'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { firebaseDb, fireBaseStorage } from '../../../../../../firebase/config'
-import { doc, getDoc, getDocs, updateDoc } from 'firebase/firestore'
+import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import LanguageTabs from '../../../CatalogItemEditor/components/LanguageTabs/LanguateTabs'
 import BroshuresTitle from './BroshuresTitle'
 import clsx from 'clsx'
@@ -94,7 +94,6 @@ const BrochureAddItem = () => {
           const titleLanguage = brochuresTitle.find(
             (t) => t.lang === language.lang
           )
-          console.log('titleLanguage', titleLanguage)
 
           documentBrochures.push({
             id: brochureData.id,
@@ -117,12 +116,22 @@ const BrochureAddItem = () => {
     }
   }
 
-  const onChanageBrochuresTitle = (lang, title) => {
+  const onChangeBrochuresTitle = (lang, title) => {
     setBrochuresTitle((prevTitles) =>
       prevTitles.map((item) =>
         item.lang === lang ? { ...item, title: title } : item
       )
     )
+  }
+
+  const isAllFieldsValid = () => {
+    const invalidTitle = brochuresTitle.find((i) => i.title === '')
+    if (invalidTitle) {
+      return false
+    } else if (!brochureData.link || !imageUrl) {
+      return false
+    }
+    return true
   }
 
   return (
@@ -167,7 +176,7 @@ const BrochureAddItem = () => {
           <BroshuresTitle
             brochuresTitle={brochuresTitle}
             id={brochureId.current}
-            setBrochuresTitle={onChanageBrochuresTitle}
+            setBrochuresTitle={onChangeBrochuresTitle}
           />
         </LanguageTabs>
 
@@ -181,8 +190,12 @@ const BrochureAddItem = () => {
         <div className='flex justify-end w-full'>
           <div className='flex gap-2'>
             <button
+              disabled={!isAllFieldsValid()}
               className={clsx(
-                'py-2 px-4 rounded-lg transition-all ease-in my-2'
+                'py-2 px-4 rounded-lg transition-all ease-in my-2',
+                !isAllFieldsValid()
+                  ? 'opacity-50 border border-red'
+                  : ' bg-redColor text-white border border-transparent'
               )}
               onClick={() => saveBrochuresData(imageUrl)}
             >

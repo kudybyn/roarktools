@@ -5,22 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3efff3eb-dd0f-439c-a89a-203155d2e211" name="Changes" comment="feat: add base admin layout; add admin sidebar; add admin registration page">
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BrochuresLinks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshureAddItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresListEditItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresListItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresTitle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/ManualsList/ManuelsList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helper/helper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/CatalogItemEditor/CatalogItemEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/CatalogItemEditor/CatalogItemEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/CatalogItemEditor/components/AdminProductName/AdminProductName.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/CatalogItemEditor/components/AdminProductName/AdminProductName.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/CatalogItemEditor/components/LanguageTabs/LanguateTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/CatalogItemEditor/components/LanguageTabs/LanguateTabs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/CatalogItemEditor/components/UploadImageComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/CatalogItemEditor/components/UploadImageComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminManuals/AdminManuals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminManuals/AdminManuals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/AdminResources.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/AdminResources.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/AdminLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/AdminLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BrochuresLinks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BrochuresLinks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshureAddItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshureAddItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresListEditItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresListEditItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresTitle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresTitle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/HomepageBlogs/HomepageBlogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/HomepageBlogs/HomepageBlogs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +129,7 @@
       <workItem from="1718112716039" duration="293000" />
       <workItem from="1718113337018" duration="2984000" />
       <workItem from="1718127726212" duration="26114000" />
-      <workItem from="1718621051965" duration="5905000" />
+      <workItem from="1718621051965" duration="14928000" />
     </task>
     <servers />
   </component>

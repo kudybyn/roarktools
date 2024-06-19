@@ -5,6 +5,7 @@ import BroshureListItem from './BroshuresListItem'
 import { Link } from 'react-router-dom'
 
 const BrochuresList = () => {
+  const [rerender, setRerender] = useState(false)
   const [broshuresList, setBrochuresList] = useState([])
   const fetchBrochuresData = async ({ collectionName, type, subType }) => {
     const querySnapshot = await getDocs(collection(db, collectionName))
@@ -25,13 +26,19 @@ const BrochuresList = () => {
       })
       setBrochuresList(data)
     })()
-  }, [])
+  }, [rerender])
 
   return (
     <div className='flex gap-5 flex-wrap'>
       {broshuresList &&
         broshuresList.map((brochureData) => {
-          return <BroshureListItem key={brochureData.id} {...brochureData} />
+          return (
+            <BroshureListItem
+              setRerender={setRerender}
+              key={brochureData.id}
+              {...brochureData}
+            />
+          )
         })}
       <Link
         to={'add'}

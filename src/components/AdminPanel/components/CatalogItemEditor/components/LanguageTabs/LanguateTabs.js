@@ -48,8 +48,6 @@ const LanguageTabs = ({
     }
   }, [rerender])
 
-  console.log('rerender', rerender)
-
   const getListOnItems = async () => {
     const promises = tabs.map((tab) => {
       const documentId = documentIdList.find((d) => d.name === tab)
