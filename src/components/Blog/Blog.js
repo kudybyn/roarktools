@@ -39,7 +39,7 @@ export default function Blog(){
     }
 
       
-    let filteredData = Object.values(data[0]).filter((brochure)=>brochure.title.toLowerCase().includes(tempSearch.toLowerCase()))
+    let filteredData = data?Object.values(data[0]).filter((brochure)=>brochure.title.toLowerCase().includes(tempSearch.toLowerCase())):[]
 
     switch(selectFilter){
         case "new":

@@ -13,7 +13,7 @@ export default function HomepageBlogs(){
 
     const { i18n, t } = useTranslation();
     const dispatch = useDispatch()
-    let data = useSelector((state) => state.blogs.data)
+    const data = useSelector((state) => state.blogs.data)
     const loading = useSelector((state) => state.blogs.loading)
   
     useEffect(() => {
@@ -22,8 +22,8 @@ export default function HomepageBlogs(){
       }
     }, [dispatch, i18n.language])
 
-    
-    data = Object.values(data[0])
+    const reformData =  data && data.length>0 ? Object.values(data[0]) : []
+
 
     return(
         <>
@@ -33,9 +33,9 @@ export default function HomepageBlogs(){
               <img src={Blogs} alt='bolt' className='w-[50px] h-[50px]' />
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10'>
-            {data && data.length > 0 && !loading ? (
+            {reformData && reformData.length > 0 && !loading ? (
               <>
-                {data.slice(0, 4).map((item) => (
+                {reformData.slice(0, 4).map((item) => (
                   <div className="flex flex-col gap-6 w-full" key={item.id}>
                     {item.images && item.images[0].link &&
                     <img src={item.images[0].link} alt={item.title} className="w-full h-[250px] object-cover"/>}
