@@ -11,6 +11,7 @@ import { lazy } from 'react'
 import AdminLayout from './AdminLayout'
 import Resourses from 'components/Resourses/Resourses'
 import Blog from "../Blog/Blog";
+import SimpleBlog from 'components/Blog/SimpleBlog/SimpleBlog'
 
 const SingInAdminPage = lazy(() => import('./SingInAdminPage'))
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/admin' element={<SingInAdminPage />} />
           <Route path='/admin/*' element={<AdminLayout />} />
           <Route path='/blog' element={<Blog/>}/>
+          <Route path='/blog/:id' element={<SimpleBlog/>}/>
           <Route
             path='/admin/*'
             element={

@@ -53,3 +53,10 @@ input:checked{
     transform: translateY(-1.5rem);
   }
 }
+
+
+p {
+  max-width: 100%; /* Ensure the p tag does not extend beyond the viewport */
+  word-wrap: break-word; /* Allow long words to be broken */
+  overflow-wrap: break-word; /* Modern equivalent of word-wrap */
+}
