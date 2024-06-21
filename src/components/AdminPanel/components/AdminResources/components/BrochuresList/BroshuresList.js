@@ -41,7 +41,7 @@ const BrochuresList = () => {
           )
         })}
       <Link
-        to={'add'}
+        to={'brochures/add'}
         className='relative cursor-pointer h-[300px] w-[300px] border border-black flex justify-center items-center hover:bg-redColor transition-all ease-in hover:text-white'
       >
         <div className='text-8xl'>+</div>

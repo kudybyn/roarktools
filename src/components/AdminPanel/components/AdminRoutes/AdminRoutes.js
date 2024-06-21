@@ -3,7 +3,6 @@ import { lazy } from 'react'
 const AdminCatalog = lazy(() => import('../AdminCatalog/AdminCatalog'))
 const AdminBlogs = lazy(() => import('../AdminBlogs/AdminBlogs'))
 const AdminResources = lazy(() => import('../AdminResources/AdminResources'))
-const AdminManuals = lazy(() => import('../AdminManuals/AdminManuals'))
 
 export const adminRoutes = [
   {
@@ -15,11 +14,6 @@ export const adminRoutes = [
     name: 'Resources',
     path: 'resources',
     component: AdminResources,
-  },
-  {
-    name: 'Manuals',
-    path: 'manuals',
-    component: AdminManuals,
   },
   {
     name: 'Blogs',

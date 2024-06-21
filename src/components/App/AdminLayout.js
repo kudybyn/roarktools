@@ -7,6 +7,9 @@ import { adminRoutes } from '../AdminPanel/components/AdminRoutes/AdminRoutes'
 import CatalogItemEditor from '../AdminPanel/components/CatalogItemEditor/CatalogItemEditor'
 import BroshuresListEditItem from '../AdminPanel/components/AdminResources/components/BrochuresList/BroshuresListEditItem'
 import BrochureAddItem from '../AdminPanel/components/AdminResources/components/BrochuresList/BroshureAddItem'
+import ManualsListListItem from '../AdminPanel/components/AdminResources/components/ManualsList/ManualsListListItem'
+import ManualsListEditItem from '../AdminPanel/components/AdminResources/components/ManualsList/ManualsListEditItem'
+import ManualsAddItem from '../AdminPanel/components/AdminResources/components/ManualsList/ManualsAddItem'
 
 const AdminLayout = () => {
   return (
@@ -38,8 +41,16 @@ const AdminLayout = () => {
                 element={<BroshuresListEditItem />}
               ></Route>
               <Route
-                path={'resources/add'}
+                path={'resources/brochures/add'}
                 element={<BrochureAddItem />}
+              ></Route>
+              <Route
+                path={'manuals/:id'}
+                element={<ManualsListEditItem />}
+              ></Route>
+              <Route
+                path={'resources/manuals/add'}
+                element={<ManualsAddItem />}
               ></Route>
 
               <Route
