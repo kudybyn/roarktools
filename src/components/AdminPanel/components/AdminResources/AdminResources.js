@@ -8,13 +8,17 @@ const AdminResources = () => {
       <div className='text-2xl py-2 px-5 border-b-[2px] border-redColor'>
         <span className='text-redColor'>Resources:</span>
       </div>
-      <div className='py-2 px-5'>
-        <div className='text-xl'>Brochures:</div>
-        <BrochuresList />
-      </div>
-      <div className='py-2 px-5'>
-        <div className='text-xl'>Manuals:</div>
-        <ManualsList />
+      <div className='h-[calc(90%)]'>
+        <div className='overflow-auto h-full'>
+          <div className='py-2 px-5 '>
+            <div className='text-xl'>Brochures:</div>
+            <BrochuresList />
+          </div>
+          <div className='py-2 px-5'>
+            <div className='text-xl'>Manuals:</div>
+            <ManualsList />
+          </div>
+        </div>
       </div>
     </div>
   )

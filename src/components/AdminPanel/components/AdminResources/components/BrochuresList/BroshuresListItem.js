@@ -42,7 +42,6 @@ const BroshureListItem = ({ id, imageSrc, link, title, setRerender }) => {
         <div className='absolute top-[13px] -left-[1px] inset-0 rotate-45 w-[30px] h-[2px] bg-redColor' />
         <div className='absolute top-[13px] -left-[1px] inset-0 -rotate-45 w-[30px] h-[2px] bg-redColor' />
       </div>
-      <div></div>
       <a
         className='h-[230px] w-[300px] flex items-center justify-center'
         href={link}

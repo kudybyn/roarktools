@@ -1,24 +1,17 @@
 import React, { useEffect } from 'react'
 
-const BroshuresTitle = ({
-  activeLanguage,
-  setBrochuresTitle,
-  brochuresTitle,
-}) => {
+const BroshuresTitle = ({ setBrochuresTitle, brochuresTitle }) => {
   const [productName, setProductName] = React.useState('')
 
   useEffect(() => {
     if (brochuresTitle) {
-      const title = brochuresTitle.find((b) => b.lang === activeLanguage)
-      if (title) {
-        setProductName(title.title)
-      }
+      setProductName(brochuresTitle)
     }
-  }, [activeLanguage, brochuresTitle])
+  }, [brochuresTitle])
 
-  const onChangeRestitutional = (e) => {
+  const onChangeBrochuresTitle = (e) => {
     const value = e.target.value
-    setBrochuresTitle(activeLanguage, value)
+    setBrochuresTitle(value)
     setProductName(value)
   }
 
@@ -27,7 +20,7 @@ const BroshuresTitle = ({
       <input
         className='w-full'
         value={productName}
-        onChange={onChangeRestitutional}
+        onChange={onChangeBrochuresTitle}
       />
     </div>
   )

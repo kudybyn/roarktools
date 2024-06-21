@@ -3,30 +3,25 @@ import { getAuth } from 'firebase/auth'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { firebaseDb, fireBaseStorage } from '../../../../../../firebase/config'
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
-import LanguageTabs from '../../../CatalogItemEditor/components/LanguageTabs/LanguateTabs'
 import BroshuresTitle from './BroshuresTitle'
 import clsx from 'clsx'
 import { documentLanguageList } from '../../../../../../helper/helper'
 import BrochuresLinks from './BrochuresLinks'
+import { useNavigate } from 'react-router-dom'
 
 const BrochureAddItem = () => {
   const [brochureData, setBrochureData] = useState({
     id: Date.now() + '-' + Math.random().toString(36).substr(2, 9),
     imageSrc: '',
     link: '',
+    title: '',
   })
-  const [brochuresTitle, setBrochuresTitle] = useState([
-    { lang: 'en', title: '' },
-    { lang: 'ar', title: '' },
-    { lang: 'pt', title: '' },
-    { lang: 'ru', title: '' },
-    { lang: 'tr', title: '' },
-  ])
+
   const [file, setFiles] = useState(null)
   const [uploading, setUploading] = useState(false)
   const [imageUrl, setImageUrl] = useState('')
   const brochureId = useRef()
-
+  const navigate = useNavigate()
   const auth = getAuth()
 
   useEffect(() => {
@@ -46,41 +41,55 @@ const BrochureAddItem = () => {
     }
   }
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (!file) {
-      return
+      return null
     }
 
     setUploading(true)
 
-    auth.currentUser
-      .getIdToken(true)
-      .then((idToken) => {
-        const storageRef = ref(fireBaseStorage, `images/${file.name}`)
-        const uploadTask = uploadBytesResumable(storageRef, file, {
-          Authorization: 'Bearer ' + idToken,
-        })
+    try {
+      const idToken = await auth.currentUser.getIdToken(true)
+      const storageRef = ref(fireBaseStorage, `images/${file.name}`)
+      const uploadTask = uploadBytesResumable(storageRef, file, {
+        Authorization: 'Bearer ' + idToken,
+      })
 
+      return new Promise((resolve, reject) => {
         uploadTask.on(
           'state_changed',
           (snapshot) => {},
           (error) => {
             setUploading(false)
+            reject(error)
           },
-          () => {
-            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          async () => {
+            try {
+              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
               setImageUrl(downloadURL)
               setUploading(false)
-            })
+              resolve(downloadURL)
+            } catch (error) {
+              setUploading(false)
+              reject(error)
+            }
           }
         )
       })
-      .catch((error) => {
-        setUploading(false)
-      })
+    } catch (error) {
+      setUploading(false)
+      throw error
+    }
   }
 
   const saveBrochuresData = async (newImageUrl) => {
+    const isUpload = await handleUpload()
+    if (!isUpload) {
+      return
+    }
+
+    console.log('Image:', isUpload)
+
     for (const language of documentLanguageList) {
       const docRef = doc(firebaseDb, language.lang, language.idDocument)
 
@@ -91,21 +100,19 @@ const BrochureAddItem = () => {
           const documentResources = document.resourses
           const documentBrochures = documentResources.brochures
 
-          const titleLanguage = brochuresTitle.find(
-            (t) => t.lang === language.lang
-          )
-
           documentBrochures.push({
             id: brochureData.id,
             imageSrc: newImageUrl,
             link: brochureData.link,
-            title: titleLanguage.title,
+            title: brochureData.title,
           })
           await updateDoc(docRef, {
             resourses: {
               ...documentResources,
               brochures: documentBrochures,
             },
+          }).then(() => {
+            navigate('/admin/resources')
           })
         } else {
           console.log('Document not found')
@@ -116,19 +123,8 @@ const BrochureAddItem = () => {
     }
   }
 
-  const onChangeBrochuresTitle = (lang, title) => {
-    setBrochuresTitle((prevTitles) =>
-      prevTitles.map((item) =>
-        item.lang === lang ? { ...item, title: title } : item
-      )
-    )
-  }
-
   const isAllFieldsValid = () => {
-    const invalidTitle = brochuresTitle.find((i) => i.title === '')
-    if (invalidTitle) {
-      return false
-    } else if (!brochureData.link || !imageUrl) {
+    if (!brochureData.link || !imageUrl || !brochureData.title) {
       return false
     }
     return true
@@ -156,29 +152,26 @@ const BrochureAddItem = () => {
               <div className='h-[250px] flex items-center justify-center'>
                 <img src={imageUrl} alt='save-img' className='h-auto w-auto' />
               </div>
-              <button
-                onClick={handleUpload}
-                disabled={uploading}
-                className='cursor-pointer h-[50px] w-[300px] flex justify-center items-center bg-redColor transition-all ease-in text-white'
-              >
-                {uploading ? 'Uploading...' : 'Upload Image'}
-              </button>
+
+              <div className='cursor-pointer w-[300px] h-[50px] relative flex items-center justify-center bg-redColor'>
+                <input
+                  type='file'
+                  className='absolute top-0 left-0 cursor-pointer w-[300px] h-[50px] opacity-0'
+                  onChange={handleFileChange}
+                />
+                <div className='text-center text-white'>Change Image</div>
+              </div>
             </div>
           )}
         </div>
         <div className='text-xl'>Brochure Titles:</div>
-        <LanguageTabs
-          subField={'title'}
-          tabs={['en', 'ar', 'pt', 'ru', 'tr']}
-          catalogId={brochureId}
-          isAddItem
-        >
-          <BroshuresTitle
-            brochuresTitle={brochuresTitle}
-            id={brochureId.current}
-            setBrochuresTitle={onChangeBrochuresTitle}
-          />
-        </LanguageTabs>
+
+        <BroshuresTitle
+          brochuresTitle={brochureData.title}
+          setBrochuresTitle={(title) =>
+            setBrochureData((prev) => ({ ...prev, title: title }))
+          }
+        />
 
         <div className='text-xl'>Brochure Link:</div>
         <BrochuresLinks
