@@ -3,7 +3,7 @@ import PageHeader from 'components/common/PageHeader';
 import Blogs from "../../assets/blogs/blogTitle.svg";
 import MenuLayout from '../MenuLayout/MenuLayout';
 import {Link} from "react-router-dom";
-import { useState,useEffect,Fragment } from "react";
+import { useState,useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchData } from '../../redux/slices/BlogsSlice'
 import Search from "../../assets/filter/search.svg";
@@ -38,8 +38,8 @@ export default function Blog(){
         setSelectFilter(filterType)
     }
 
-      
-    let filteredData = data?Object.values(data[0]).filter((brochure)=>brochure.title.toLowerCase().includes(tempSearch.toLowerCase())):[]
+
+    let filteredData = data && data.length>0?Object.values(data[0]).filter((brochure)=>brochure.title.toLowerCase().includes(tempSearch.toLowerCase())):[]
 
     switch(selectFilter){
         case "new":
@@ -118,9 +118,11 @@ export default function Blog(){
                                       {item.title}
                                     </span>}
                                     {item.description && (
-                                      <span className='text-[18px]  text-[#bebebe] font-normal h-full line-clamp-6'>
+                                      <div className="h-[150px]">
+                                      <span className='text-[18px]  text-[#bebebe] font-normal h-auto line-clamp-6'>
                                         {item.description}
                                       </span>
+                                      </div>
                                     )}
                                     <Link to={`/blog/${item.id}`} className="text-[rgb(255,0,0)] font-semibold text-[28px] flex items-center
                                     gap-2 transition duration-500 hover:scale-105">{t('homepage.readMore')} <img src={ArrowLeft}

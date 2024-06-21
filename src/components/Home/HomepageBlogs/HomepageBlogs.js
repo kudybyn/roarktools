@@ -36,16 +36,18 @@ export default function HomepageBlogs(){
             {reformData && reformData.length > 0 && !loading ? (
               <>
                 {reformData.slice(0, 4).map((item) => (
-                  <div className="flex flex-col gap-6 w-full" key={item.id}>
+                  <div className="flex flex-col gap-6 w-full h-full" key={item.id}>
                     {item.images && item.images[0].link &&
                     <img src={item.images[0].link} alt={item.title} className="w-full h-[250px] object-cover"/>}
                     {item.title && <span className='text-[24px]'>
                       {item.title}
                     </span>}
                     {item.description && (
-                      <span className='text-[18px]  text-[#bebebe] font-normal line-clamp-6'>
+                       <div className="h-[150px]">
+                      <span className='text-[18px]  text-[#bebebe] font-normal h-auto line-clamp-6'>
                         {item.description}
                       </span>
+                      </div>
                     )}
                     <Link to={`/blog/${item.id}`} className="text-[rgb(255,0,0)] font-semibold text-[28px] flex items-center
                     gap-2 transition duration-500 hover:scale-105">{t('homepage.readMore')} <img src={ArrowLeft}
