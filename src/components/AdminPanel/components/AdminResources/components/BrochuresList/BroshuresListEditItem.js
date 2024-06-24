@@ -113,7 +113,6 @@ const BrochureEditItem = () => {
   const saveBrochuresData = async (newImageUrl) => {
     const isUpload = await handleUpload()
     console.log('Image', isUpload)
-    console.log('continue')
 
     if (!isUpload || !changeImg) return
     setChangeImg(false)

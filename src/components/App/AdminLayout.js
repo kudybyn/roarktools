@@ -10,6 +10,8 @@ import BrochureAddItem from '../AdminPanel/components/AdminResources/components/
 import ManualsListListItem from '../AdminPanel/components/AdminResources/components/ManualsList/ManualsListListItem'
 import ManualsListEditItem from '../AdminPanel/components/AdminResources/components/ManualsList/ManualsListEditItem'
 import ManualsAddItem from '../AdminPanel/components/AdminResources/components/ManualsList/ManualsAddItem'
+import AdminBlogsAddItem from '../AdminPanel/components/AdminBlogs/components/AdminBlogsAddItem'
+import AdminBlogsEditItem from '../AdminPanel/components/AdminBlogs/components/AdminBlogsEditItem'
 
 const AdminLayout = () => {
   return (
@@ -52,6 +54,9 @@ const AdminLayout = () => {
                 path={'resources/manuals/add'}
                 element={<ManualsAddItem />}
               ></Route>
+
+              <Route path={'blogs/add'} element={<AdminBlogsAddItem />} />
+              <Route path={'blogs/:id'} element={<AdminBlogsEditItem />} />
 
               <Route
                 path='*'
