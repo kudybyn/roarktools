@@ -88,8 +88,6 @@ const BrochureAddItem = () => {
       return
     }
 
-    console.log('Image:', isUpload)
-
     for (const language of documentLanguageList) {
       const docRef = doc(firebaseDb, language.lang, language.idDocument)
 

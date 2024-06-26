@@ -11,7 +11,6 @@ const AdminBlogsList = () => {
   const dispatch = useDispatch()
   const { data, loading } = useSelector((state) => state.blogs)
   const [rerender, setRerender] = useState(false)
-  console.log('data', data)
   const blogsDataList = data.length ? Object.values(data[0]) : []
   useEffect(() => {
     dispatch(fetchData({ collectionName: 'en', type: 'blogs' }))

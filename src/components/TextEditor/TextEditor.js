@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 
-const TextEditor = ({ onContentChange }) => {
+const TextEditor = ({ onContentChange, content }) => {
   const [editorHtml, setEditorHtml] = useState('')
 
   const handleChange = (html) => {
     setEditorHtml(html)
     onContentChange(html)
   }
+
+  useEffect(() => {
+    if (content) {
+      setEditorHtml(content)
+    }
+  }, [content])
 
   return (
     <div>

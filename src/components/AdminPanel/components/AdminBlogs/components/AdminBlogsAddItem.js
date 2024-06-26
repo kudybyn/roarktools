@@ -66,7 +66,6 @@ const AdminBlogsAddItem = () => {
     if (!fileData) {
       return null
     }
-    console.log('fileData', fileData.name)
 
     try {
       const idToken = await auth.currentUser.getIdToken(true)
@@ -100,13 +99,11 @@ const AdminBlogsAddItem = () => {
   const saveBlogData = async () => {
     const blogImgList = await Promise.all(
       blogData.images.map((imgData) => {
-        console.log('imgData')
         return handleUpload(imgData.selectedFile)
       })
     )
     if (!blogImgList.length) return
 
-    console.log('blogImgList', blogImgList)
     for (const language of documentLanguageList) {
       const docRef = doc(firebaseDb, language.lang, language.idDocument)
 
