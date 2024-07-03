@@ -2,16 +2,17 @@ import { useTranslation } from 'react-i18next'
 import MenuLayout from '../../MenuLayout/MenuLayout'
 import PageHeader from 'components/common/PageHeader'
 import Blogs from '../../../assets/blogs/blogTitle.svg'
-import TextEditor from 'components/TextEditor/TextEditor'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchData } from '../../../redux/slices/BlogsSlice'
 import { useLocation, Link } from 'react-router-dom'
 import ArrowLeft from '../../../assets/homepage/arrow-left.svg'
 import { RectangularSkeleton, LinesSkeleton } from '../../common/skeletons'
+import useScrollToTop from "../../../utils/useScrollToTop";
 
 export default function SimpleBlog() {
   const { t, i18n } = useTranslation()
+  useScrollToTop();
   const { pathname } = useLocation()
   const dispatch = useDispatch()
   let data = useSelector((state) => state.blogs.data)

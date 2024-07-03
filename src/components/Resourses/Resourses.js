@@ -9,9 +9,11 @@ import Close from "../../assets/homepage/close-black.svg";
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchData } from '../../redux/slices/ResoursesSlice';
 import { RectangularSkeleton, LinesSkeleton } from '../common/skeletons'
+import useScrollToTop from '../../utils/useScrollToTop';
 
 export default function Resourses() {
     const { t,i18n } = useTranslation();
+    useScrollToTop();
     const dispatch = useDispatch()
     let data = useSelector((state) => state.resourses.data[0])
     const loading = useSelector((state) => state.resourses.loading)

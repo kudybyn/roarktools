@@ -1,5 +1,6 @@
 {
     "language": "Türkçe",
+    "value": "₺",
     "routes" : {
         "home": "Ana Sayfa",
         "products": "Ürünler",
@@ -74,4 +75,9 @@
             "old": "Eski",
             "moreBlogs": "Daha fazla blog"
           }
+          ,    "products":{
+            "all": "Tümü",
+    "less expensive": "Daha ucuz",
+    "more expensive": "Daha pahalı"
+                      }
 }

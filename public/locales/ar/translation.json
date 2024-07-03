@@ -1,5 +1,6 @@
 {
     "language": "العربية",
+    "value": "د.إ",
     "routes" : {
         "home": "الرئيسية",
         "products": "المنتجات",
@@ -75,6 +76,11 @@
         "new": "جديد",
         "old": "قديم",
         "moreBlogs": "المزيد من المدونات"
+    },
+    "products":{
+        "all": "الكل",
+            "less expensive": "أقل تكلفة",
+    "more expensive": "أكثر تكلفة"
     }
 }
 

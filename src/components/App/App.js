@@ -12,12 +12,12 @@ import AdminLayout from './AdminLayout'
 import Resourses from 'components/Resourses/Resourses'
 import Blog from "../Blog/Blog";
 import SimpleBlog from 'components/Blog/SimpleBlog/SimpleBlog'
+import Products from "../Products/Products";
 
 const SingInAdminPage = lazy(() => import('./SingInAdminPage'))
 
 function App() {
   const authAccessToken = useSelector((store) => store.auth.authAccessToken)
-
   return (
     <div className='font-bold text-bold'>
       <Router>
@@ -29,6 +29,7 @@ function App() {
           <Route path='/admin/*' element={<AdminLayout />} />
           <Route path='/blog' element={<Blog/>}/>
           <Route path='/blog/:id' element={<SimpleBlog/>}/>
+          <Route path="/products" element={<Products/>}/>
           <Route
             path='/admin/*'
             element={

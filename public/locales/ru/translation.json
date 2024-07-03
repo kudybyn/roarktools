@@ -1,5 +1,6 @@
 {
     "language": "русский",
+    "value": "₽",
     "routes" : {
         "home": "Главная",
         "products": "Продукты",
@@ -73,4 +74,9 @@
           "old": "Старые",
           "moreBlogs": "Больше блогов"
         }
+        ,    "products":{
+          "all": "Все",
+    "less expensive": "Менее дорого",
+    "more expensive": "Более дорого"
+              }
 }

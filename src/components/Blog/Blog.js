@@ -10,9 +10,11 @@ import Search from '../../assets/filter/search.svg'
 import ArrowDown from '../../assets/resourses/arrowDown.svg'
 import ArrowLeft from '../../assets/homepage/arrow-left.svg'
 import { RectangularSkeleton, LinesSkeleton } from '../common/skeletons'
+import useScrollToTop from '../../utils/useScrollToTop';
 
 export default function Blog() {
   const { t, i18n } = useTranslation()
+  useScrollToTop();
   const dispatch = useDispatch()
   let data = useSelector((state) => state.blogs.data)
   const loading = useSelector((state) => state.blogs.loading)

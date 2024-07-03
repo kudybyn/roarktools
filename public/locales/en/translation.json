@@ -1,5 +1,6 @@
 {
     "language": "english",
+    "value":"$",
     "routes" : {
         "home": "Home",
         "products": "Products",
@@ -74,5 +75,11 @@
        "new":"New",
        "old":"Old",
        "moreBlogs":"More blogs"
+    },
+    "products":{
+        "all":"All",
+        "products":"Products",
+        "less expensive":"Less expensive",
+        "more expensive":"More expensive"
     }
 }

@@ -5,8 +5,10 @@ import clsx from 'clsx'
 import Map from "./Map/Map";
 import ContactImage from '../../assets/homepage/contact.svg'
 import PageHeader from 'components/common/PageHeader';
+import useScrollToTop from '../../utils/useScrollToTop';
 
 export default function Contact(){
+  useScrollToTop();
     const {t} = useTranslation();
     return(    <MenuLayout>
         <div className='w-full min-h-[100vh] pt-[100px] '>

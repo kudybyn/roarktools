@@ -1,5 +1,6 @@
 {
     "language": "português",
+    "value": "€",
     "routes" : {
         "home": "Início",
         "products": "Produtos",
@@ -73,4 +74,9 @@
                 "old": "Antigo",
                 "moreBlogs": "Mais blogs"
             }
+            ,    "products":{
+                "all": "Todos",
+    "less expensive": "Menos caro",
+    "more expensive": "Mais caro"
+        }
 }

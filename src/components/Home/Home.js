@@ -7,6 +7,7 @@ import ContactUs from './ContactUs/ContactUs'
 import {Element} from 'react-scroll';
 import HomepageInfo from "./HomepageInfo/HomepageInfo";
 import HomepageBlogs from "./HomepageBlogs/HomepageBlogs";
+import useScrollToTop from "../../utils/useScrollToTop";
 
 export default function Home() {
   const scrollToBottom = () => {
@@ -15,6 +16,9 @@ export default function Home() {
       behavior: 'smooth',
     })
   }
+
+  useScrollToTop();
+  
 
   const { t } = useTranslation()
 
