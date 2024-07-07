@@ -11,6 +11,8 @@ import ManualsListEditItem from '../AdminPanel/components/AdminResources/compone
 import ManualsAddItem from '../AdminPanel/components/AdminResources/components/ManualsList/ManualsAddItem'
 import AdminBlogsAddItem from '../AdminPanel/components/AdminBlogs/components/AdminBlogsAddItem'
 import AdminBlogsEditItem from '../AdminPanel/components/AdminBlogs/components/AdminBlogsEditItem'
+import CatalogAddItemLayout from '../AdminPanel/components/CatalogItemEditor/components/CatalogAddItemLayout'
+import CatalogAddItem from '../AdminPanel/components/CatalogItemEditor/components/CatalogAddItem/CatalogAddItem'
 
 const AdminLayout = () => {
   return (
@@ -37,6 +39,7 @@ const AdminLayout = () => {
                 path={'catalog/:id'}
                 element={<CatalogItemEditor />}
               ></Route>
+              <Route path={'catalog/add'} element={<CatalogAddItem />}></Route>
               <Route
                 path={'resources/:id'}
                 element={<BroshuresListEditItem />}

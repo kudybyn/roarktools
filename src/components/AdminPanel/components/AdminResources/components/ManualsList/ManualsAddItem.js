@@ -173,7 +173,7 @@ const ManualsAddItem = () => {
           }
         />
 
-        <div className='text-xl'>Brochure Link:</div>
+        <div className='text-xl'>Manuals Link:</div>
         <BrochuresLinks
           setBrochuresLinks={(link) =>
             setBrochureData((prev) => ({ ...prev, link: link }))
