@@ -16,33 +16,34 @@ export default function Products() {
   useScrollToTop()
   const { i18n, t } = useTranslation()
 
-  const dispatch = useDispatch()
-  let data = useSelector((state) => state.catalog.data)
-  const loading = useSelector((state) => state.catalog.loading)
 
-  useEffect(() => {
-    if (i18n.language) {
-      dispatch(fetchData({ collectionName: i18n.language, type: 'calatog' }))
+    const dispatch = useDispatch()
+    let data = useSelector((state) => state.catalog.data)
+    const loading = useSelector((state) => state.catalog.loading)
+  
+    useEffect(() => {
+      if (i18n.language) {
+        dispatch(fetchData({ collectionName: i18n.language, type: 'calatog' }))
+      }
+    }, [dispatch, i18n.language])
+    const [tempSearch, setTempSearch] = useState('')
+    const [selectFilter, setSelectFilter] = useState('all')
+    const [openFilter, setOpenFilter] = useState(false);
+    const filterTypes = ['all', 'less expensive', 'more expensive']
+
+
+    const changeFilterOpen = () => {
+      setOpenFilter(!openFilter)
     }
-  }, [dispatch, i18n.language])
-  data = [...data, ...data, ...data, ...data, ...data, ...data]
-  const [tempSearch, setTempSearch] = useState('')
-  const [selectFilter, setSelectFilter] = useState('all')
-  const [openFilter, setOpenFilter] = useState(false)
-  const filterTypes = ['all', 'less expensive', 'more expensive']
-
-  const changeFilterOpen = () => {
-    setOpenFilter(!openFilter)
-  }
-
-  const onChangeFilter = (filterType) => {
-    setOpenFilter(false)
-    setSelectFilter(filterType)
-  }
-
-  let filteredData =
-    data && data.length > 0
-      ? data.filter((product) =>
+  
+    const onChangeFilter = (filterType) => {
+      setOpenFilter(false)
+      setSelectFilter(filterType)
+    }
+  
+    let filteredData =
+      data && data.length > 0
+        ? data.filter((product) =>
           product.title.toLowerCase().includes(tempSearch.toLowerCase())
         )
       : []
@@ -120,14 +121,14 @@ export default function Products() {
                 )}
               </div>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10'>
-              {data && data.length > 0 && !loading ? (
-                <>
-                  {filteredData.map((item, index) => (
-                    <Link
-                      to={`/products/${item.title}`}
-                      key={index}
-                      className=' shadow-xl flex flex-col gap-4 w-full items-center border-2 border-black py-6 px-2 rounded-[25px] 
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10'>
+            {data && data.length > 0 && !loading ? (
+              <>
+                {filteredData.map((item, index) => (
+                  <Link
+                    to={`/products/${item.id}`}
+                    key={index}
+                    className=' shadow-xl flex flex-col gap-4 w-full items-center border-2 border-black py-6 px-2 rounded-[25px] 
                     transition duration-500 hover:scale-105'
                     >
                       <img

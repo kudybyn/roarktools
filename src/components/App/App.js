@@ -13,6 +13,7 @@ import Resourses from 'components/Resourses/Resourses'
 import Blog from "../Blog/Blog";
 import SimpleBlog from 'components/Blog/SimpleBlog/SimpleBlog'
 import Products from "../Products/Products";
+import Product from "../Products/Product/Product";
 
 const SingInAdminPage = lazy(() => import('./SingInAdminPage'))
 
@@ -30,6 +31,7 @@ function App() {
           <Route path='/blog' element={<Blog/>}/>
           <Route path='/blog/:id' element={<SimpleBlog/>}/>
           <Route path="/products" element={<Products/>}/>
+          <Route path="/products/:id" element={<Product/>}/>
           <Route
             path='/admin/*'
             element={
