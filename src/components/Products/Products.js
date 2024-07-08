@@ -26,7 +26,6 @@ export default function Products(){
         dispatch(fetchData({ collectionName: i18n.language, type: 'calatog' }))
       }
     }, [dispatch, i18n.language])
-    data = [...data,...data,...data,...data,...data,...data]
     const [tempSearch, setTempSearch] = useState('')
     const [selectFilter, setSelectFilter] = useState('all')
     const [openFilter, setOpenFilter] = useState(false);
@@ -41,8 +40,6 @@ export default function Products(){
       setOpenFilter(false)
       setSelectFilter(filterType)
     }
-
-    console.log(data)
   
     let filteredData =
       data && data.length > 0
@@ -129,7 +126,7 @@ export default function Products(){
               <>
                 {filteredData.map((item, index) => (
                   <Link
-                    to={`/products/${item.title}`}
+                    to={`/products/${item.id}`}
                     key={index}
                     className=' shadow-xl flex flex-col gap-4 w-full items-center border-2 border-black py-6 px-2 rounded-[25px] 
                     transition duration-500 hover:scale-105'

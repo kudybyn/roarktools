@@ -24,10 +24,11 @@ export default function SimpleBlog() {
     }
   }, [dispatch, i18n.language])
 
-  const numberOfBlog = +pathname.slice(pathname.lastIndexOf('/') + 1)
+  const numberOfBlog = pathname.slice(pathname.lastIndexOf('/') + 1)
   let filteredDataAll = data && data.length > 0 ? Object.values(data[0]) : []
   const filteredData =
-    data && data.length > 0 ? filteredDataAll[numberOfBlog - 1] : []
+    data && data.length > 0 ? filteredDataAll.find(item=>{
+      return String(item.id) === numberOfBlog}) : []
   const { title, description, content } = filteredData
 
   return (
