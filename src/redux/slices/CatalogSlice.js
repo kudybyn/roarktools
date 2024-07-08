@@ -9,10 +9,10 @@ export const fetchData = createAsyncThunk(
     const querySnapshot = await getDocs(collection(db, collectionName))
     const fetchedData = querySnapshot.docs.map((doc) => {
       return {
-        ...doc.data()[type][0],
+        ...doc.data()[type],
       }
     })
-    return fetchedData
+    return Object.values(Object.values(fetchedData)[0])
   }
 )
 

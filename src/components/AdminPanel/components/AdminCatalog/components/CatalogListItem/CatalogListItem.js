@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 
 const CatalogListItem = ({ productData }) => {
   return (
-    <div className='card shadow w-fit p-4 rounded-xl border'>
-      <img
-        alt={productData.title}
-        src={productData.images[0].link}
-        className='object-cover max-w-[200px] max-h-[200px] h-auto w-auto'
-      />
+    <div className='card shadow p-4 rounded-xl border h-[300px] w-[300px] items-center flex flex-col'>
+      <div className='h-[180px] w-[300px] flex items-center justify-center'>
+        <img
+          alt={productData.title}
+          src={productData.images[0].link}
+          className='object-cover max-w-[300px] max-h-[180px] h-auto w-auto'
+        />
+      </div>
       <div className='my-3 '>{productData.title}</div>
       <Link
         to={`${productData.id}`}
