@@ -206,7 +206,7 @@ const CatalogAddItem = () => {
           ).features
 
           const newProduct = {
-            id: Date.now() + '-' + Math.random().toString(36).substr(2, 9),
+            id: catalogData.id,
             title: catalogData.title,
             description: languageDescription,
             features: languageFeatures,

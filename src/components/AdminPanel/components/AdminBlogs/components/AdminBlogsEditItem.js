@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import clsx from 'clsx'
 import TextEditor from '../../../../TextEditor/TextEditor'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
@@ -135,10 +135,6 @@ const AdminBlogsEditItem = () => {
     const uploadImgList = blogData.images.filter((i) => !i.isDowload)
 
     const currentImgList = blogData.images.filter((i) => i.isDowload)
-    const currentUpdatedImgList = currentImgList.map((i) => ({
-      id: i.id,
-      link: i.link.link,
-    }))
 
     let blogImgList = []
     if (uploadImgList.length) {
