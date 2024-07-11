@@ -12,7 +12,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 const BrochureEditItem = () => {
   const params = useParams()
   const [brochureData, setBrochureData] = useState({
-    id: Date.now() + '-' + Math.random().toString(36).substr(2, 9),
+    id: params.id,
     imageSrc: '',
     link: '',
     title: '',
@@ -36,10 +36,15 @@ const BrochureEditItem = () => {
           if (docSnapshot.exists()) {
             const document = docSnapshot.data()
             const documentResources = document.resourses
+            console.log('documentResources', documentResources)
             const documentBrochures = documentResources.brochures
+            console.log('documentBrochures - 2', documentBrochures)
             const currentBrochures = documentBrochures.find(
-              (b) => b.id === brochureId
+              (b) => b.id === brochureData.id
             )
+
+            console.log('currentBrochures', currentBrochures)
+
             if (!imageUrl) setImageUrl(currentBrochures.imageSrc)
             if (!brochureData.link)
               setBrochureData((prev) => ({

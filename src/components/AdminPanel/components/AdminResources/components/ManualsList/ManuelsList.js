@@ -36,6 +36,7 @@ const ManualsList = () => {
             <ManualsListListItem
               setRerender={setRerender}
               key={brochureData.id}
+              idManuals={brochureData.id}
               {...brochureData}
             />
           )

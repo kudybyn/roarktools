@@ -49,7 +49,7 @@ const AdminLayout = () => {
                 element={<BrochureAddItem />}
               ></Route>
               <Route
-                path={'manuals/:id'}
+                path={'resources/manuals/:id'}
                 element={<ManualsListEditItem />}
               ></Route>
               <Route
