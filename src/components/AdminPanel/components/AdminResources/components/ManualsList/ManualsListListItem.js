@@ -4,7 +4,13 @@ import { documentLanguageList } from '../../../../../../helper/helper'
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import { firebaseDb } from '../../../../../../firebase/config'
 
-const ManualsListListItem = ({ id, imageSrc, link, title, setRerender }) => {
+const ManualsListListItem = ({
+  idManuals,
+  imageSrc,
+  link,
+  title,
+  setRerender,
+}) => {
   const removeManualsItem = async () => {
     for (const language of documentLanguageList) {
       const docRef = doc(firebaseDb, language.lang, language.idDocument)
@@ -15,7 +21,9 @@ const ManualsListListItem = ({ id, imageSrc, link, title, setRerender }) => {
           const document = docSnapshot.data()
           const documentResources = document.resourses
           const documentManuals = documentResources.manuals
-          const updatedManuals = documentManuals.filter((b) => b.id !== id)
+          const updatedManuals = documentManuals.filter(
+            (b) => b.id !== idManuals
+          )
           await updateDoc(docRef, {
             resourses: {
               ...documentResources,
@@ -36,7 +44,7 @@ const ManualsListListItem = ({ id, imageSrc, link, title, setRerender }) => {
       <div
         className='absolute top-[10px] right-[10px] cursor-pointer w-[30px] h-[30px] border border-redColor'
         onClick={() => {
-          removeManualsItem(id)
+          removeManualsItem(idManuals)
         }}
       >
         <div className='absolute top-[13px] -left-[1px] inset-0 rotate-45 w-[30px] h-[2px] bg-redColor' />
@@ -57,7 +65,7 @@ const ManualsListListItem = ({ id, imageSrc, link, title, setRerender }) => {
         <div className='text-center text-lg my-0.5'>{title}</div>
 
         <Link
-          to={`${id}`}
+          to={`manuals/${idManuals}`}
           className='w-full flex items-center justify-center bg-redColor py-1.5 text-white hover:text-black hover:bg-white hover:border hover:border-redColor border border-transparent transition-all ease-in'
         >
           Change Manuals
