@@ -165,7 +165,7 @@ const BurgerMenu = ({ languageList, menu }) => {
   return (
     <div>
       <div
-        className='flex gap-2 flex-col'
+        className='flex gap-2 flex-col cursor-pointer'
         onClick={() => setOpenBurgerMenu(!openBurgerMenu)}
       >
         <div className='w-8 h-0.5 bg-white'></div>
