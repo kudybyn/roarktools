@@ -16,7 +16,9 @@ import Slider from "react-slick";
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    autoplay: true,
+  autoplaySpeed: 5000
   };
 
 
@@ -42,6 +44,7 @@ export default function Product(){
         return String(item.id) === numberOfBlog}) : []
 
 
+        console.log(filteredData)
     return(
         <MenuLayout>
         <div className='w-full min-h-[100vh] pt-[100px] '>
@@ -53,15 +56,26 @@ export default function Product(){
             srcLogo={Bolt}
           />
                             <div className='w-full h-full flex justify-center'>
-                            <div className='container h-full min-h-[100vh] px-6 md:px-12 py-12 flex flex-col gap-8 w-full'>
+                            <div className='container h-full min-h-[100vh] px-6 md:px-12 py-12 flex flex-col gap-8 w-full justify-center'>
                                 {filteredData.subtitle && 
-                                <span className='text-[27px] text-center text-[#bebebe]'>{filteredData.subtitle}</span>}
-                                <div className="flex flex-col md:flex-row gap-8">
-                                <Slider {...settings}>
+                                <div className="mb-12 flex justify-center"><span className='text-[27px] text-center text-[#bebebe]'>{filteredData.subtitle}</span></div>}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-[1260px] mx-auto">
+                                <Slider {...settings} className="flex w-full max-h-[500px]">
                                     {filteredData.images && filteredData.images.length>0 && filteredData.images.map((image,index)=>
-                                    <img src={image.link} alt="product image" key={index}/>)}
-                                    </Slider>
+                                    <img src={image.link} alt="product image" key={index} className="max-h-[500px] object-contain"/>)}
+                                    </Slider><div className="flex flex-col justify-between px-8">
+                                <div className="flex flex-col gap-2">
+                                 {filteredData.title && <span className="text-[27px] uppercase font-bold">{filteredData.title}</span>}
+                                 {filteredData.title && <span className="text-[21px] text-[#bebebe] font-normal">{filteredData.title}</span>}
+                                 {filteredData.price && <span className="text-[21px]  pt-2 font-bold">{filteredData.price}{t('value')}</span>}
                                 </div>
+                                <button className="rounded-xl border-2 border-black bg-black py-4 px-6 text-white w-max font-bold text-[24px] 
+                                transition duration-500 hover:bg-white hover:text-black">
+                                Add to cart
+                                </button>
+                                </div>
+                                </div>
+                                <div>fff</div>
                                 </div>
                                 </div>
                                 </div>
