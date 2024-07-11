@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { fetchData } from '../../../../redux/slices/CatalogSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import CatalogListItem from './components/CatalogListItem/CatalogListItem'
@@ -7,10 +7,11 @@ import { Link } from 'react-router-dom'
 const AdminCatalog = () => {
   const dispatch = useDispatch()
   const catalogList = useSelector((state) => state.catalog.data)
+  const [rerender, setRerender] = useState(false)
 
   useEffect(() => {
     dispatch(fetchData({ collectionName: 'en', type: 'calatog' }))
-  }, [dispatch])
+  }, [dispatch, rerender])
 
   return (
     <div className='text-black'>
@@ -20,7 +21,13 @@ const AdminCatalog = () => {
       <div className='px-5 py-4 w-full overflow-auto h-[95vh]'>
         <section className='flex gap-5 flex-wrap'>
           {catalogList.map((product) => {
-            return <CatalogListItem productData={product} />
+            return (
+              <CatalogListItem
+                key={product.id}
+                productData={product}
+                setRerender={setRerender}
+              />
+            )
           })}
           <Link
             to={'add'}

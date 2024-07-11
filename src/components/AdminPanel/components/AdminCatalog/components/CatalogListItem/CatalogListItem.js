@@ -1,9 +1,44 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { documentLanguageList } from '../../../../../../helper/helper'
+import { doc, getDoc, updateDoc } from 'firebase/firestore'
+import { firebaseDb } from '../../../../../../firebase/config'
 
-const CatalogListItem = ({ productData }) => {
+const CatalogListItem = ({ productData, setRerender }) => {
+  const removeProduct = async (id) => {
+    for (const language of documentLanguageList) {
+      const docRef = doc(firebaseDb, language.lang, language.idDocument)
+
+      try {
+        const docSnapshot = await getDoc(docRef)
+        if (docSnapshot.exists()) {
+          const document = docSnapshot.data()
+          const documentResources = document.calatog
+          const updatedManuals = documentResources.filter((b) => b.id !== id)
+          await updateDoc(docRef, {
+            calatog: updatedManuals,
+          })
+          setRerender((prev) => !prev)
+        } else {
+          console.log('Document not found')
+        }
+      } catch (error) {
+        console.error('Error updating brochures images:', error)
+      }
+    }
+  }
+
   return (
-    <div className='card shadow p-4 rounded-xl border h-[300px] w-[300px] items-center flex flex-col'>
+    <div className='relative card shadow p-4 rounded-xl border h-[300px] w-[300px] items-center flex flex-col'>
+      <div
+        className='absolute top-[10px] right-[10px] cursor-pointer w-[30px] h-[30px] border border-redColor'
+        onClick={() => {
+          removeProduct(productData.id)
+        }}
+      >
+        <div className='absolute top-[13px] -left-[1px] inset-0 rotate-45 w-[30px] h-[2px] bg-redColor' />
+        <div className='absolute top-[13px] -left-[1px] inset-0 -rotate-45 w-[30px] h-[2px] bg-redColor' />
+      </div>
       <div className='h-[180px] w-[300px] flex items-center justify-center'>
         <img
           alt={productData.title}
