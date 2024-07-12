@@ -10,6 +10,7 @@ import {fetchData} from "../../../redux/slices/CatalogSlice";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import addNewProducts from "../../../redux/slices/BucketSlice";
 
   var settings = {
     dots: false,
@@ -31,7 +32,6 @@ export default function Product(){
     const [activeTab,setActiveTab] = useState('manuals');
     const dispatch = useDispatch()
     let data = useSelector((state) => state.catalog.data)
-    const loading = useSelector((state) => state.catalog.loading)
     
   
     useEffect(() => {
@@ -45,7 +45,22 @@ export default function Product(){
       data && data.length > 0 ? data.find(item=>{
         return String(item.id) === numberOfBlog}) : []
 
-    
+        const onAddToBucket = () => {
+          const bucketData = localStorage.getItem('bucketData');
+          let parsedBucketData = [];
+        
+          if (bucketData) {
+            parsedBucketData = JSON.parse(bucketData);
+          }
+        
+          const dataToAdd = Array.isArray(filteredData) ? filteredData : [filteredData];
+        
+          parsedBucketData.push(...dataToAdd);
+        
+          localStorage.setItem('bucketData', JSON.stringify(parsedBucketData));
+        
+          dispatch(addNewProducts(dataToAdd));
+        };
 
     if(!filteredData){
      return <MenuLayout>
@@ -84,7 +99,7 @@ export default function Product(){
                                  {filteredData.price && <span className="text-[21px]  pt-2 font-bold">{filteredData.price}{t('value')}</span>}
                                 </div>
                                 <button className="rounded-xl mt-4 lg:mt-0 border-2 border-black bg-black py-4 px-6 text-white w-max font-bold text-[24px] 
-                                transition duration-500 hover:bg-white hover:text-black">
+                                transition duration-500 hover:bg-white hover:text-black" onClick={()=>onAddToBucket(filteredData)}>
                                 Add to bucket
                                 </button>
                                 </div>

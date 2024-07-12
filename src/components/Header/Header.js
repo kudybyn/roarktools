@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import LogoImg from '../../assets/logo.png'
 import clsx from 'clsx'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import {addNewProducts} from "../../redux/slices/BucketSlice";
+import Bucket from "../../assets/homepage/bucket.svg";
 
 const Header = ({ menu }) => {
   const { i18n } = useTranslation()
@@ -12,7 +15,31 @@ const Header = ({ menu }) => {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng)
   }
+  const dispatch = useDispatch();
+
+  const  bucketData = useSelector((state) => state.bucket.data)
+  
+
+  useEffect(() => {
+    if (!bucketData || bucketData.length === 0) {
+      const localStorageBucketData = localStorage.getItem('bucketData');
+      if (localStorageBucketData) {
+        const parsedData = JSON.parse(localStorageBucketData);
+        dispatch(addNewProducts(parsedData));
+      }
+    }
+  }, [bucketData, dispatch]);
+
+
+
   return (
+    <>
+    {bucketData && bucketData.length && 
+    <button className="fixed bottom-12 right-12 rounded-[50%] bg-redColor p-4 flex justify-center items-center transition duration-500 hover:scale-105">
+      <img src={Bucket} className="w-[40px] h-[40px]" alt="bucket"/>
+      <div className="absolute bottom-0 right-0 rounded-[50%] bg-black text-white w-[25px] h-[25px] flex items-center justify-center
+      text-[14px]">{bucketData.length}</div>
+    </button>}
     <div className='bg-black fixed w-full z-20'>
       <div className='w-full flex container mx-auto items-center justify-between py-5 px-4 xl:px-5 sm:px-10 laptop:px-6'>
         <div className='flex gap-10 items-center'>
@@ -150,6 +177,7 @@ const Header = ({ menu }) => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
