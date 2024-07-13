@@ -6,15 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3efff3eb-dd0f-439c-a89a-203155d2e211" name="Changes" comment="feat: add base admin layout; add admin sidebar; add admin registration page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminBlogs/components/AdminBlogsAddItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminBlogs/components/AdminBlogsAddItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminBlogs/components/AdminBlogsEditItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminBlogs/components/AdminBlogsEditItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshureAddItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshureAddItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresListEditItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/BrochuresList/BroshuresListEditItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/ManualsList/ManualsAddItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/ManualsList/ManualsAddItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/ManualsList/ManualsListEditItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/AdminResources/components/ManualsList/ManualsListEditItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/CatalogItemEditor/CatalogItemEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/CatalogItemEditor/CatalogItemEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/CatalogItemEditor/components/CatalogAddItem/CatalogAddItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/CatalogItemEditor/components/CatalogAddItem/CatalogAddItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AdminPanel/components/CatalogItemEditor/components/UploadImageComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdminPanel/components/CatalogItemEditor/components/UploadImageComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/Product/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/Product/Product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/slices/BucketSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/slices/BucketSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +129,7 @@
       <workItem from="1718883037721" duration="29879000" />
       <workItem from="1719408422645" duration="4150000" />
       <workItem from="1720192866157" duration="27235000" />
-      <workItem from="1720520321933" duration="18553000" />
+      <workItem from="1720520321933" duration="19648000" />
     </task>
     <servers />
   </component>
