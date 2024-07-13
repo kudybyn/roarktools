@@ -32,7 +32,7 @@ export default function Catalog() {
               <>
                 {data.slice(0, 4).map((item, index) => (
                   <Link
-                    to={`/products/${item.title}`}
+                    to={`/products/${item.id}`}
                     key={index}
                     className=' shadow-xl flex flex-col gap-4 w-full items-center border-2 border-black py-6 px-2 rounded-[25px] 
                     transition duration-500 hover:scale-105'

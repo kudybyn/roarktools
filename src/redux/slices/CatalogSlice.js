@@ -1,6 +1,6 @@
 // dataSlice.js
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { collection, doc, getDoc, getDocs } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 import db from '../../firebase/config'
 
 export const fetchData = createAsyncThunk(
