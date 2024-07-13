@@ -240,11 +240,7 @@ const CatalogAddItem = () => {
               id: Date.now() + '-' + Math.random().toString(36).substr(2, 9),
             })),
           }
-          console.log(language, newProduct)
-          console.log('[...documentBlogs, newProduct]', [
-            ...documentBlogs,
-            newProduct,
-          ])
+
           await updateDoc(docRef, {
             calatog: [...documentBlogs, newProduct],
           }).then(() => {

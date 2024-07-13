@@ -36,14 +36,10 @@ const BrochureEditItem = () => {
           if (docSnapshot.exists()) {
             const document = docSnapshot.data()
             const documentResources = document.resourses
-            console.log('documentResources', documentResources)
             const documentBrochures = documentResources.brochures
-            console.log('documentBrochures - 2', documentBrochures)
             const currentBrochures = documentBrochures.find(
               (b) => b.id === brochureData.id
             )
-
-            console.log('currentBrochures', currentBrochures)
 
             if (!imageUrl) setImageUrl(currentBrochures.imageSrc)
             if (!brochureData.link)

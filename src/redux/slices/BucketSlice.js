@@ -18,7 +18,6 @@ const bucketSlice = createSlice({
       state.data = []
     },
     addNewProducts: (state, action) => {
-      console.log('action', action.payload)
       state.data = action.payload
     },
   },
