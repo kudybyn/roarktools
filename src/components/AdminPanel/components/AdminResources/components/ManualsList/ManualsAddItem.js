@@ -51,8 +51,21 @@ const ManualsAddItem = () => {
     try {
       const idToken = await auth.currentUser.getIdToken(true)
       const storageRef = ref(fireBaseStorage, `images/${file.name}`)
+
+      try {
+        const existingDownloadURL = await getDownloadURL(storageRef)
+        setImageUrl(existingDownloadURL)
+        setUploading(false)
+        return existingDownloadURL
+      } catch (error) {
+        if (error.code !== 'storage/object-not-found') {
+          setUploading(false)
+          throw error
+        }
+      }
+
       const uploadTask = uploadBytesResumable(storageRef, file, {
-        Authorization: 'Bearer ' + idToken,
+        customMetadata: { Authorization: 'Bearer ' + idToken },
       })
 
       return new Promise((resolve, reject) => {

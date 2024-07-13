@@ -23,7 +23,7 @@ const UploadAndFetchComponent = ({ id: catalogId, setRerenderList }) => {
     }
   }
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (!file) {
       return
     }
@@ -32,10 +32,23 @@ const UploadAndFetchComponent = ({ id: catalogId, setRerenderList }) => {
 
     auth.currentUser
       .getIdToken(true)
-      .then((idToken) => {
+      .then(async (idToken) => {
         const storageRef = ref(fireBaseStorage, `images/${file.name}`)
+
+        try {
+          const existingDownloadURL = await getDownloadURL(storageRef)
+          setImageUrl(existingDownloadURL)
+          updateCatalogImages(existingDownloadURL)
+          setUploading(false)
+          return
+        } catch (error) {
+          if (error.code !== 'storage/object-not-found') {
+            throw error // Якщо це інша помилка, ніж "файл не знайдено"
+          }
+        }
+
         const uploadTask = uploadBytesResumable(storageRef, file, {
-          Authorization: 'Bearer ' + idToken,
+          customMetadata: { Authorization: 'Bearer ' + idToken },
         })
 
         uploadTask.on(
@@ -43,20 +56,27 @@ const UploadAndFetchComponent = ({ id: catalogId, setRerenderList }) => {
           (snapshot) => {
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            console.log('Upload is ' + progress + '% done')
           },
           (error) => {
+            console.error('Upload failed', error)
             setUploading(false)
           },
-          () => {
-            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          async () => {
+            try {
+              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
               setImageUrl(downloadURL)
               updateCatalogImages(downloadURL)
               setUploading(false)
-            })
+            } catch (error) {
+              console.error('Failed to get download URL', error)
+              setUploading(false)
+            }
           }
         )
       })
       .catch((error) => {
+        console.error('Failed to get ID token', error)
         setUploading(false)
       })
   }

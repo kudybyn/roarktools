@@ -86,28 +86,44 @@ const BrochureEditItem = () => {
     try {
       const idToken = await auth.currentUser.getIdToken(true)
       const storageRef = ref(fireBaseStorage, `images/${file.name}`)
-      const uploadTask = uploadBytesResumable(storageRef, file, {
-        customMetadata: { Authorization: 'Bearer ' + idToken },
-      })
 
-      return new Promise((resolve, reject) => {
-        uploadTask.on(
-          'state_changed',
-          (snapshot) => {},
-          (error) => {
-            setUploading(false)
-            reject(error)
-          },
-          async () => {
-            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
-            setImageUrl(downloadURL)
-            imageUrlText = downloadURL
-            setUploading(false)
-            resolve(downloadURL)
-            return imageUrlText
-          }
-        )
-      })
+      try {
+        const downloadURL = await getDownloadURL(storageRef)
+        setImageUrl(downloadURL)
+        imageUrlText = downloadURL
+        setUploading(false)
+        return downloadURL
+      } catch (error) {
+        if (error.code === 'storage/object-not-found') {
+          const uploadTask = uploadBytesResumable(storageRef, file, {
+            customMetadata: { Authorization: 'Bearer ' + idToken },
+          })
+
+          return new Promise((resolve, reject) => {
+            uploadTask.on(
+              'state_changed',
+              (snapshot) => {},
+              (error) => {
+                setUploading(false)
+                reject(error)
+              },
+              async () => {
+                const downloadURL = await getDownloadURL(
+                  uploadTask.snapshot.ref
+                )
+                setImageUrl(downloadURL)
+                imageUrlText = downloadURL
+                setUploading(false)
+                resolve(downloadURL)
+                return imageUrlText
+              }
+            )
+          })
+        } else {
+          console.error('Error checking file existence:', error)
+          throw error
+        }
+      }
     } catch (error) {
       setUploading(false)
       console.error('Error uploading file:', error)

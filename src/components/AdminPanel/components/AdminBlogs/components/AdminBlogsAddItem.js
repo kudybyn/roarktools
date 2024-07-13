@@ -70,32 +70,43 @@ const AdminBlogsAddItem = () => {
     try {
       const idToken = await auth.currentUser.getIdToken(true)
       const storageRef = ref(fireBaseStorage, `images/${fileData.name}`)
-      const uploadTask = uploadBytesResumable(storageRef, fileData, {
-        Authorization: 'Bearer ' + idToken,
-      })
 
-      return new Promise((resolve, reject) => {
-        uploadTask.on(
-          'state_changed',
-          (snapshot) => {},
-          (error) => {
-            reject(error)
-          },
-          async () => {
-            try {
-              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
-              resolve(downloadURL)
-            } catch (error) {
-              reject(error)
-            }
-          }
-        )
-      })
+      try {
+        const existingDownloadURL = await getDownloadURL(storageRef)
+        return existingDownloadURL
+      } catch (error) {
+        if (error.code === 'storage/object-not-found') {
+          const uploadTask = uploadBytesResumable(storageRef, fileData, {
+            customMetadata: { Authorization: 'Bearer ' + idToken },
+          })
+
+          return new Promise((resolve, reject) => {
+            uploadTask.on(
+              'state_changed',
+              (snapshot) => {},
+              (error) => {
+                reject(error)
+              },
+              async () => {
+                try {
+                  const downloadURL = await getDownloadURL(
+                    uploadTask.snapshot.ref
+                  )
+                  resolve(downloadURL)
+                } catch (error) {
+                  reject(error)
+                }
+              }
+            )
+          })
+        } else {
+          throw error
+        }
+      }
     } catch (error) {
       throw error
     }
   }
-
   const saveBlogData = async () => {
     const blogImgList = await Promise.all(
       blogData.images.map((imgData) => {

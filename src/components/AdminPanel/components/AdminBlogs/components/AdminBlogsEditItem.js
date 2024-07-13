@@ -105,8 +105,19 @@ const AdminBlogsEditItem = () => {
     try {
       const idToken = await auth.currentUser.getIdToken(true)
       const storageRef = ref(fireBaseStorage, `images/${fileData.name}`)
+
+      // Перевірка, чи існує файл
+      try {
+        const existingDownloadURL = await getDownloadURL(storageRef)
+        return existingDownloadURL
+      } catch (error) {
+        if (error.code !== 'storage/object-not-found') {
+          throw error // Якщо це інша помилка, ніж "файл не знайдено"
+        }
+      }
+
       const uploadTask = uploadBytesResumable(storageRef, fileData, {
-        Authorization: 'Bearer ' + idToken,
+        customMetadata: { Authorization: 'Bearer ' + idToken },
       })
 
       return new Promise((resolve, reject) => {

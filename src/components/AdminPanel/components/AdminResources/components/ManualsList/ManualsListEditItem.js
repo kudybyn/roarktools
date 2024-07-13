@@ -75,13 +75,25 @@ const ManualsListEditItem = () => {
     if (!file) {
       return false
     }
-    let imageUrlText = imageUrl
 
     setUploading(true)
 
     try {
       const idToken = await auth.currentUser.getIdToken(true)
       const storageRef = ref(fireBaseStorage, `images/${file.name}`)
+
+      try {
+        const existingDownloadURL = await getDownloadURL(storageRef)
+        setImageUrl(existingDownloadURL)
+        setUploading(false)
+        return existingDownloadURL
+      } catch (error) {
+        if (error.code !== 'storage/object-not-found') {
+          setUploading(false)
+          throw error
+        }
+      }
+
       const uploadTask = uploadBytesResumable(storageRef, file, {
         customMetadata: { Authorization: 'Bearer ' + idToken },
       })
@@ -95,12 +107,15 @@ const ManualsListEditItem = () => {
             reject(error)
           },
           async () => {
-            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
-            setImageUrl(downloadURL)
-            imageUrlText = downloadURL
-            setUploading(false)
-            resolve(downloadURL)
-            return imageUrlText
+            try {
+              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
+              setImageUrl(downloadURL)
+              setUploading(false)
+              resolve(downloadURL)
+            } catch (error) {
+              setUploading(false)
+              reject(error)
+            }
           }
         )
       })
