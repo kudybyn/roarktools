@@ -7,7 +7,7 @@ const Footer = ({ menu }) => {
     <div className='bg-black w-full'>
       <div className='container mx-auto flex flex-col items-center'>
         <ul className='pt-3 flex gap-3 justify-center'>
-          {menu.map((linkData,index) => {
+          {menu.map((linkData, index) => {
             return (
               <li
                 key={linkData.title}
@@ -60,21 +60,7 @@ const Footer = ({ menu }) => {
               'w-[34px] transition-all hover:scale-110 ease-out cursor-pointer hover:bg-white hover:text-redColor hover:border-redColor h-[34px] flex items-center justify-center border border-white text-white uppercase font-normal'
             )}
           >
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              width='20'
-              height='20'
-              viewBox='0 0 24 24'
-              fill='none'
-              stroke='currentColor'
-              strokeWidth='2'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              className='icon icon-tabler icons-tabler-outline icon-tabler-brand-twitter '
-            >
-              <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-              <path d='M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c0 -.249 1.51 -2.772 1.818 -4.013z' />
-            </svg>
+            x
           </a>
           <a
             href='https://www.facebook.com/roarktoolsinc/'
