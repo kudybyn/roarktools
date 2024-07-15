@@ -6,6 +6,7 @@ import ArrowLeft from '../../../../../assets/homepage/arrow-left.svg'
 import { documentLanguageList } from '../../../../../helper/helper'
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import { firebaseDb } from '../../../../../firebase/config'
+import SpinnerComponent from '../../SpinnerComponent/SpinnerComponent'
 
 const AdminBlogsList = () => {
   const dispatch = useDispatch()
@@ -15,6 +16,7 @@ const AdminBlogsList = () => {
   useEffect(() => {
     dispatch(fetchData({ collectionName: 'en', type: 'blogs' }))
   }, [rerender])
+  const [loadingValue, setLoadingValue] = useState(false)
 
   const removeBlogs = async (id) => {
     for (const language of documentLanguageList) {
@@ -26,8 +28,11 @@ const AdminBlogsList = () => {
           const document = docSnapshot.data()
           const documentResources = document.blogs
           const updatedManuals = documentResources.filter((b) => b.id !== id)
+          setLoadingValue(true)
           await updateDoc(docRef, {
             blogs: updatedManuals,
+          }).finally(() => {
+            setLoadingValue(false)
           })
           setRerender((prev) => !prev)
         } else {
@@ -41,6 +46,7 @@ const AdminBlogsList = () => {
 
   return (
     <div className='px-5 py-3'>
+      {loading || loadingValue ? <SpinnerComponent /> : null}
       <div className='flex flex-wrap gap-6'>
         {loading || !blogsDataList.length ? (
           <div>Loading</div>

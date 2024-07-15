@@ -7,6 +7,7 @@ import { getAuth } from 'firebase/auth'
 import { documentLanguageList } from '../../../../../helper/helper'
 import { doc, getDoc, Timestamp, updateDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
+import SpinnerComponent from '../../SpinnerComponent/SpinnerComponent'
 
 const requiredFields = ['content', 'createdBy', 'description', 'id', 'title']
 
@@ -21,6 +22,7 @@ const AdminBlogsAddItem = () => {
     title: '',
     images: [],
   })
+  const [loadingValue, setLoadingValue] = useState(false)
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0]
@@ -108,6 +110,7 @@ const AdminBlogsAddItem = () => {
     }
   }
   const saveBlogData = async () => {
+    setLoadingValue(true)
     const blogImgList = await Promise.all(
       blogData.images.map((imgData) => {
         return handleUpload(imgData.selectedFile)
@@ -138,9 +141,13 @@ const AdminBlogsAddItem = () => {
 
           await updateDoc(docRef, {
             blogs: [...documentBlogs, newBlog],
-          }).then(() => {
-            navigate('/admin/blogs')
           })
+            .then(() => {
+              navigate('/admin/blogs')
+            })
+            .finally(() => {
+              setLoadingValue(false)
+            })
         } else {
           console.log('Document not found')
         }
@@ -152,6 +159,7 @@ const AdminBlogsAddItem = () => {
 
   return (
     <div>
+      {loadingValue ? <SpinnerComponent /> : null}
       <div className='text-2xl py-2 px-5 border-b-[2px] border-redColor'>
         Add New Blog
       </div>

@@ -8,6 +8,7 @@ import clsx from 'clsx'
 import { documentLanguageList } from '../../../../../../helper/helper'
 import BrochuresLinks from './BrochuresLinks'
 import { useNavigate, useParams } from 'react-router-dom'
+import SpinnerComponent from '../../../SpinnerComponent/SpinnerComponent'
 
 const BrochureEditItem = () => {
   const params = useParams()
@@ -24,6 +25,7 @@ const BrochureEditItem = () => {
   const [imageUrl, setImageUrl] = useState('')
   const brochureId = params.id
   const [changeImg, setChangeImg] = useState(false)
+  const [loadingValue, setLoadingValue] = useState(false)
 
   const auth = getAuth()
 
@@ -32,7 +34,10 @@ const BrochureEditItem = () => {
       for (const language of documentLanguageList) {
         const docRef = doc(firebaseDb, language.lang, language.idDocument)
         try {
-          const docSnapshot = await getDoc(docRef)
+          setLoadingValue(true)
+          const docSnapshot = await getDoc(docRef).finally(() => {
+            setLoadingValue(false)
+          })
           if (docSnapshot.exists()) {
             const document = docSnapshot.data()
             const documentResources = document.resourses
@@ -128,6 +133,7 @@ const BrochureEditItem = () => {
   }
 
   const saveBrochuresData = async (newImageUrl) => {
+    setLoadingValue(true)
     const isUpload = await handleUpload()
     console.log('Image', isUpload)
 
@@ -160,9 +166,13 @@ const BrochureEditItem = () => {
               ...documentResources,
               brochures: updatedList,
             },
-          }).then(() => {
-            navigate('/admin/resources')
           })
+            .then(() => {
+              navigate('/admin/resources')
+            })
+            .finally(() => {
+              setLoadingValue(false)
+            })
         } else {
           console.log('Document not found')
         }
@@ -181,6 +191,7 @@ const BrochureEditItem = () => {
 
   return (
     <div className=''>
+      {loadingValue ? <SpinnerComponent /> : null}
       <div className='text-2xl py-2 px-5 border-b-[2px] border-redColor'>
         <span className='text-redColor'>Edit Brochure:</span>
       </div>

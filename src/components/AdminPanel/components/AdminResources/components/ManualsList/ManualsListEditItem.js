@@ -8,6 +8,7 @@ import { documentLanguageList } from '../../../../../../helper/helper'
 import { useNavigate, useParams } from 'react-router-dom'
 import BrochuresLinks from '../BrochuresList/BrochuresLinks'
 import BroshuresTitle from '../BrochuresList/BroshuresTitle'
+import SpinnerComponent from '../../../SpinnerComponent/SpinnerComponent'
 
 const ManualsListEditItem = () => {
   const params = useParams()
@@ -18,6 +19,7 @@ const ManualsListEditItem = () => {
     title: '',
   })
   const navigate = useNavigate()
+  const [loadingValue, setLoadingValue] = useState(false)
 
   const [file, setFiles] = useState(null)
   const [uploading, setUploading] = useState(false)
@@ -32,7 +34,10 @@ const ManualsListEditItem = () => {
       for (const language of documentLanguageList) {
         const docRef = doc(firebaseDb, language.lang, language.idDocument)
         try {
-          const docSnapshot = await getDoc(docRef)
+          setLoadingValue(true)
+          const docSnapshot = await getDoc(docRef).finally(() => {
+            setLoadingValue(false)
+          })
           if (docSnapshot.exists()) {
             const document = docSnapshot.data()
             const documentResources = document.resourses
@@ -127,9 +132,9 @@ const ManualsListEditItem = () => {
   }
 
   const saveBrochuresData = async (newImageUrl) => {
+    setLoadingValue(true)
     const isUpload = await handleUpload()
     console.log('Image', isUpload)
-    console.log('continue')
 
     if (!isUpload || !changeImg) return
     setChangeImg(false)
@@ -160,9 +165,13 @@ const ManualsListEditItem = () => {
               ...documentResources,
               manuals: updatedList,
             },
-          }).then(() => {
-            navigate('/admin/resources')
           })
+            .then(() => {
+              navigate('/admin/resources')
+            })
+            .finally(() => {
+              setLoadingValue(false)
+            })
         } else {
           console.log('Document not found')
         }
@@ -181,6 +190,7 @@ const ManualsListEditItem = () => {
 
   return (
     <div className=''>
+      {loadingValue ? <SpinnerComponent /> : null}
       <div className='text-2xl py-2 px-5 border-b-[2px] border-redColor'>
         <span className='text-redColor'>Edit Manuals:</span>
       </div>

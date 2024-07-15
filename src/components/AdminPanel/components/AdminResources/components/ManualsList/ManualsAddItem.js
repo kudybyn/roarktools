@@ -8,6 +8,7 @@ import { documentLanguageList } from '../../../../../../helper/helper'
 import { useNavigate } from 'react-router-dom'
 import BrochuresLinks from '../BrochuresList/BrochuresLinks'
 import BroshuresTitle from '../BrochuresList/BroshuresTitle'
+import SpinnerComponent from '../../../SpinnerComponent/SpinnerComponent'
 
 const ManualsAddItem = () => {
   const [brochureData, setBrochureData] = useState({
@@ -23,6 +24,7 @@ const ManualsAddItem = () => {
   const brochureId = useRef()
   const navigate = useNavigate()
   const auth = getAuth()
+  const [loadingValue, setLoadingValue] = useState(false)
 
   useEffect(() => {
     brochureId.current =
@@ -96,6 +98,7 @@ const ManualsAddItem = () => {
   }
 
   const saveBrochuresData = async (newImageUrl) => {
+    setLoadingValue(true)
     const isUpload = await handleUpload()
     if (!isUpload) {
       return
@@ -124,9 +127,13 @@ const ManualsAddItem = () => {
               ...documentResources,
               manuals: documentBrochures,
             },
-          }).then(() => {
-            navigate('/admin/resources')
           })
+            .then(() => {
+              navigate('/admin/resources')
+            })
+            .finally(() => {
+              setLoadingValue(false)
+            })
         } else {
           console.log('Document not found')
         }
@@ -145,6 +152,7 @@ const ManualsAddItem = () => {
 
   return (
     <div>
+      {loadingValue ? <SpinnerComponent /> : null}
       <div className='text-2xl py-2 px-5 border-b-[2px] border-redColor'>
         <span className='text-redColor'>Add Manual:</span>
       </div>

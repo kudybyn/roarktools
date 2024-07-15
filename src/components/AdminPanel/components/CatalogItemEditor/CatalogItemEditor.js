@@ -12,6 +12,7 @@ import CatalogInput from './components/CatalogInput/CatalogInput'
 import DescriptionInput from './components/DescriptionInput/DescriptionInput'
 import FeaturesInputList from './components/FeaturesInputList/FeaturesInputList'
 import PriceInput from './components/PriceInput/PriceInput'
+import SpinnerComponent from '../SpinnerComponent/SpinnerComponent'
 
 const CatalogItemEditor = () => {
   const params = useParams()
@@ -21,6 +22,7 @@ const CatalogItemEditor = () => {
   const navigate = useNavigate()
   const auth = getAuth()
   const [rerenderList, setRerenderList] = useState(false)
+  const [loadingValue, setLoadingValue] = useState(false)
 
   const [catalogData, setCatalogData] = useState({
     id: params.id,
@@ -75,10 +77,13 @@ const CatalogItemEditor = () => {
 
   const fetchAllProductData = async () => {
     try {
+      setLoadingValue(true)
       const promises = documentLanguageList.map((language) =>
         fetchBlogData(language.lang, language.idDocument)
       )
-      const results = await Promise.all(promises)
+      const results = await Promise.all(promises).finally(() => {
+        setLoadingValue(false)
+      })
       const combinedCatalog = results.map((doc) => {
         return doc.calatog.find((i) => i.id === params.id)
       })
@@ -248,6 +253,7 @@ const CatalogItemEditor = () => {
   }
 
   const saveProductData = async () => {
+    setLoadingValue(true)
     const catalogImgList = await Promise.all(
       catalogData.images
         .filter((i) => !i.isDownload)
@@ -344,9 +350,13 @@ const CatalogItemEditor = () => {
           })
           await updateDoc(docRef, {
             calatog: updatedCalatogList,
-          }).then(() => {
-            navigate('/admin/catalog')
           })
+            .then(() => {
+              navigate('/admin/catalog')
+            })
+            .finally(() => {
+              setLoadingValue(false)
+            })
         } else {
           console.log('Document not found')
         }
@@ -358,6 +368,7 @@ const CatalogItemEditor = () => {
 
   return (
     <div>
+      {loadingValue ? <SpinnerComponent /> : null}
       <div className='py-2 px-5  text-2xl border-b-[2px] border-redColor'>
         <span className='text-redColor'>Add New Product:</span>
       </div>

@@ -3,10 +3,13 @@ import db from '../../../../../../firebase/config'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ManualsListListItem from './ManualsListListItem'
+import SpinnerComponent from '../../../SpinnerComponent/SpinnerComponent'
 
 const ManualsList = () => {
   const [rerender, setRerender] = useState(false)
   const [broshuresList, setBrochuresList] = useState([])
+  const [loadingValue, setLoadingValue] = useState(false)
+
   const fetchBrochuresData = async ({ collectionName, type, subType }) => {
     const querySnapshot = await getDocs(collection(db, collectionName))
     const fetchedData = querySnapshot.docs.map((doc) => {
@@ -19,10 +22,13 @@ const ManualsList = () => {
 
   useEffect(() => {
     ;(async () => {
+      setLoadingValue(true)
       const data = await fetchBrochuresData({
         collectionName: 'en',
         type: 'resourses',
         subType: 'manuals',
+      }).finally(() => {
+        setLoadingValue(false)
       })
       setBrochuresList(data)
     })()
@@ -30,6 +36,7 @@ const ManualsList = () => {
 
   return (
     <div className='flex gap-5 flex-wrap'>
+      {loadingValue ? <SpinnerComponent /> : null}
       {broshuresList &&
         broshuresList.map((brochureData) => {
           return (

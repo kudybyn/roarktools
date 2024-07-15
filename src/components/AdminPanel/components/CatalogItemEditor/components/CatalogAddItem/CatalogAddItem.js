@@ -11,6 +11,7 @@ import { firebaseDb, fireBaseStorage } from '../../../../../../firebase/config'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { getAuth } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import SpinnerComponent from '../../../SpinnerComponent/SpinnerComponent'
 
 const CatalogAddItem = () => {
   const navigate = useNavigate()
@@ -25,6 +26,8 @@ const CatalogAddItem = () => {
     title: '',
     technicalData: [],
   })
+  const [loadingValue, setLoadingValue] = useState(false)
+
   const [rerenderList, setRerenderList] = useState(false)
 
   const [catalogSubTitle, setCatalogSubTitle] = useState([
@@ -164,7 +167,7 @@ const CatalogAddItem = () => {
   }
 
   const saveProductData = async () => {
-    console.log('start')
+    setLoadingValue(true)
     const catalogImgList = await Promise.all(
       catalogData.images.map((imgData) => {
         return handleUpload(imgData.selectedFile)
@@ -243,9 +246,13 @@ const CatalogAddItem = () => {
 
           await updateDoc(docRef, {
             calatog: [...documentBlogs, newProduct],
-          }).then(() => {
-            navigate('/admin/catalog')
           })
+            .then(() => {
+              navigate('/admin/catalog')
+            })
+            .finally(() => {
+              setLoadingValue(false)
+            })
         } else {
           console.log('Document not found')
         }
@@ -257,6 +264,7 @@ const CatalogAddItem = () => {
 
   return (
     <div>
+      {loadingValue ? <SpinnerComponent /> : null}
       <div className='py-2 px-5  text-2xl border-b-[2px] border-redColor'>
         <span className='text-redColor'>Add New Product:</span>
       </div>

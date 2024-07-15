@@ -8,6 +8,7 @@ import clsx from 'clsx'
 import { documentLanguageList } from '../../../../../../helper/helper'
 import BrochuresLinks from './BrochuresLinks'
 import { useNavigate } from 'react-router-dom'
+import SpinnerComponent from '../../../SpinnerComponent/SpinnerComponent'
 
 const BrochureAddItem = () => {
   const [brochureData, setBrochureData] = useState({
@@ -23,6 +24,7 @@ const BrochureAddItem = () => {
   const brochureId = useRef()
   const navigate = useNavigate()
   const auth = getAuth()
+  const [loadingValue, setLoadingValue] = useState(false)
 
   useEffect(() => {
     brochureId.current =
@@ -95,6 +97,7 @@ const BrochureAddItem = () => {
   }
 
   const saveBrochuresData = async (newImageUrl) => {
+    setLoadingValue(true)
     const isUpload = await handleUpload()
     if (!isUpload) {
       return
@@ -121,9 +124,13 @@ const BrochureAddItem = () => {
               ...documentResources,
               brochures: documentBrochures,
             },
-          }).then(() => {
-            navigate('/admin/resources')
           })
+            .then(() => {
+              navigate('/admin/resources')
+            })
+            .finally(() => {
+              setLoadingValue(false)
+            })
         } else {
           console.log('Document not found')
         }
@@ -142,6 +149,7 @@ const BrochureAddItem = () => {
 
   return (
     <div>
+      {loadingValue ? <SpinnerComponent /> : null}
       <div className='text-2xl py-2 px-5 border-b-[2px] border-redColor'>
         <span className='text-redColor'>Add Brochure:</span>
       </div>

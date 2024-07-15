@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import TextEditor from '../../../../TextEditor/TextEditor'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
@@ -7,6 +7,7 @@ import { getAuth } from 'firebase/auth'
 import { documentLanguageList } from '../../../../../helper/helper'
 import { doc, getDoc, Timestamp, updateDoc } from 'firebase/firestore'
 import { useNavigate, useParams } from 'react-router-dom'
+import SpinnerComponent from '../../SpinnerComponent/SpinnerComponent'
 
 const requiredFields = ['content', 'createdBy', 'description', 'id', 'title']
 
@@ -22,12 +23,14 @@ const AdminBlogsEditItem = () => {
     title: '',
     images: [],
   })
+  const [loadingValue, setLoadingValue] = useState(false)
 
   useEffect(() => {
     ;(async () => {
       const docRef = doc(firebaseDb, 'en', 't7rkXlxoXbQZBESujoQr')
 
       try {
+        setLoadingValue(true)
         const docSnapshot = await getDoc(docRef)
         if (docSnapshot.exists()) {
           const document = docSnapshot.data()
@@ -48,6 +51,7 @@ const AdminBlogsEditItem = () => {
             title: currentBlog.title,
             images: currentBlog.images.map((i) => ({ ...i, isDowload: true })),
           })
+          setLoadingValue(false)
         } else {
           console.log('Document not found')
         }
@@ -143,6 +147,7 @@ const AdminBlogsEditItem = () => {
   }
 
   const saveBlogData = async () => {
+    setLoadingValue(true)
     const uploadImgList = blogData.images.filter((i) => !i.isDowload)
 
     const currentImgList = blogData.images.filter((i) => i.isDowload)
@@ -184,9 +189,13 @@ const AdminBlogsEditItem = () => {
 
           await updateDoc(docRef, {
             blogs: updatedDocumentBlogs,
-          }).then(() => {
-            navigate('/admin/blogs')
           })
+            .then(() => {
+              navigate('/admin/blogs')
+            })
+            .finally(() => {
+              setLoadingValue(false)
+            })
         } else {
           console.log('Document not found')
         }
@@ -198,6 +207,7 @@ const AdminBlogsEditItem = () => {
 
   return (
     <div>
+      {loadingValue ? <SpinnerComponent /> : null}
       <div className='text-2xl py-2 px-5 border-b-[2px] border-redColor'>
         Add New Blog
       </div>

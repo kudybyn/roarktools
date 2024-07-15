@@ -3,10 +3,11 @@ import { fetchData } from '../../../../redux/slices/CatalogSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import CatalogListItem from './components/CatalogListItem/CatalogListItem'
 import { Link } from 'react-router-dom'
+import SpinnerComponent from '../SpinnerComponent/SpinnerComponent'
 
 const AdminCatalog = () => {
   const dispatch = useDispatch()
-  const catalogList = useSelector((state) => state.catalog.data)
+  const { data: catalogList, loading } = useSelector((state) => state.catalog)
   const [rerender, setRerender] = useState(false)
 
   useEffect(() => {
@@ -15,6 +16,7 @@ const AdminCatalog = () => {
 
   return (
     <div className='text-black'>
+      {loading ? <SpinnerComponent /> : null}
       <div className='text-2xl py-2 px-5 border-b-[2px] border-redColor'>
         Catalog Page
       </div>
