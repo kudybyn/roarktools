@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { documentLanguageList } from '../../../../../../helper/helper'
 import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import { firebaseDb } from '../../../../../../firebase/config'
+import SpinnerComponent from '../../../SpinnerComponent/SpinnerComponent'
 
 const CatalogListItem = ({ productData, setRerender }) => {
+  const [loadingValue, setLoadingValue] = useState(false)
+
   const removeProduct = async (id) => {
+    setLoadingValue(true)
     for (const language of documentLanguageList) {
       const docRef = doc(firebaseDb, language.lang, language.idDocument)
 
@@ -17,6 +21,8 @@ const CatalogListItem = ({ productData, setRerender }) => {
           const updatedManuals = documentResources.filter((b) => b.id !== id)
           await updateDoc(docRef, {
             calatog: updatedManuals,
+          }).finally(() => {
+            setLoadingValue(false)
           })
           setRerender((prev) => !prev)
         } else {
@@ -30,6 +36,7 @@ const CatalogListItem = ({ productData, setRerender }) => {
 
   return (
     <div className='relative card shadow p-4 rounded-xl border h-[300px] w-[300px] items-center flex flex-col'>
+      {loadingValue ? <SpinnerComponent /> : null}
       <div
         className='absolute top-[10px] right-[10px] cursor-pointer w-[30px] h-[30px] border border-redColor'
         onClick={() => {
