@@ -7,11 +7,15 @@ const bucketSlice = createSlice({
   },
   reducers: {
     add: (state, action) => {
-      state.data.push(action.payload)
+      console.log(action)
+      if (Array.isArray(state.data)) {
+        state.data.push(action.payload)
+      }
     },
     remove: (state, action) => {
+      console.log(action.payload)
       state.data = state.data.filter(
-        (product) => product.id !== action.payload.id
+        (product,index) => index !== action.payload
       )
     },
     removeAll: (state) => {

@@ -78,5 +78,18 @@
           "all": "Все",
     "less expensive": "Менее дорого",
     "more expensive": "Более дорого"
-              }
+              },
+              "product": {
+    "addToBucket": "Добавить в корзину",
+    "features": "Особенности",
+    "manuals": "инструкции",
+    "technicalsData": "технические данные",
+    "schemas": "схемы"
+},
+"bucket": {
+    "addedProduct": "Товар добавлен!",
+    "yourBucket": "Ваша корзина",
+    "emptyBucket": "Ваша корзина пуста.",
+    "buy": "Купить"
+}
 }

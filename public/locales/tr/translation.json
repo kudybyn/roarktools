@@ -79,5 +79,18 @@
             "all": "Tümü",
     "less expensive": "Daha ucuz",
     "more expensive": "Daha pahalı"
-                      }
+                      },
+                      "product": {
+    "addToBucket": "Sepete ekle",
+    "features": "Özellikler",
+    "manuals": "kılavuzlar",
+    "technicalsData": "teknik veriler",
+    "schemas": "şemalar"
+},
+"bucket": {
+    "addedProduct": "Ürün eklendi!",
+    "yourBucket": "Sepetiniz",
+    "emptyBucket": "Sepetinizde ürün yok.",
+    "buy": "Satın al"
+}
 }

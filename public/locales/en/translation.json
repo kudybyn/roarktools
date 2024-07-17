@@ -81,5 +81,18 @@
         "products":"Products",
         "less expensive":"Less expensive",
         "more expensive":"More expensive"
+    },
+    "product":{
+        "addToBucket":"Add to bucket",
+        "features":"Features",
+        "manuals":"manuals",
+        "technicalsData":"technicals data",
+        "schemas":"schemas"
+    },
+    "bucket":{
+        "addedProduct":"Product added!",
+        "yourBucket":"Your Bucket",
+        "emptyBucket":"No items in your bucket.",
+        "buy":"Buy"
     }
 }

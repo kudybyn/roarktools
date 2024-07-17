@@ -78,5 +78,18 @@
                 "all": "Todos",
     "less expensive": "Menos caro",
     "more expensive": "Mais caro"
-        }
+        },
+        "product": {
+    "addToBucket": "Adicionar ao balde",
+    "features": "Características",
+    "manuals": "manuais",
+    "technicalsData": "dados técnicos",
+    "schemas": "esquemas"
+},
+"bucket": {
+    "addedProduct": "Produto adicionado!",
+    "yourBucket": "Seu Balde",
+    "emptyBucket": "Sem itens no seu balde.",
+    "buy": "Comprar"
+}
 }

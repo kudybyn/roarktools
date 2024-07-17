@@ -81,7 +81,20 @@
         "all": "الكل",
             "less expensive": "أقل تكلفة",
     "more expensive": "أكثر تكلفة"
-    }
+    },
+"product": {
+    "addToBucket": "أضف إلى السلة",
+    "features": "الميزات",
+    "manuals": "الكتيبات",
+    "technicalsData": "البيانات الفنية",
+    "schemas": "المخططات"
+},
+"bucket": {
+    "addedProduct": "تم إضافة المنتج!",
+    "yourBucket": "سلتك",
+    "emptyBucket": "لا توجد عناصر في سلتك.",
+    "buy": "شراء"
+}
 }
 
 

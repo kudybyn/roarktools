@@ -33,6 +33,7 @@ module.exports = {
       colors: {
         black: '#151718',
         redColor: 'red',
+        customGreen: 'rgb(60, 179, 113)',
       },
       gridTemplateColumns: {
         "1fr2fr1fr":"1fr 2fr 1fr"

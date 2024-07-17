@@ -118,7 +118,7 @@ export default function Resourses() {
                                   </>
                               :brochuresLocal.map((brochure)=>(
                                 <a target="_blank" href={brochure.link} className="flex flex-col items-center gap-4 transition duration-300 hover:scale-105" key={brochure.title}>
-                                    <img src={brochure.imageSrc} alt={brochure.title} className="w-full object-contain h-[250px]"/>
+                                    {brochure.imageSrc && <img src={brochure.imageSrc} alt={brochure.title} className="w-full object-contain h-[250px]"/>}
                                     <span className="text-redColor text-[24px] text-center
                                     ">{brochure.title}</span>
                                     </a>
@@ -146,7 +146,7 @@ export default function Resourses() {
                                   </>
                               :manualsLocal.map((brochure)=>(
                                 <a target="_blank" href={brochure.link} className="flex flex-col items-center gap-4 transition duration-300 hover:scale-105" key={brochure.title}>
-                                    <img src={brochure.imageSrc} alt={brochure.title} className="w-full object-contain h-[250px]"/>
+                                     {brochure.imageSrc && <img src={brochure.imageSrc} alt={brochure.title} className="w-full object-contain h-[250px]"/>}
                                     <span className="text-redColor text-[24px] text-center
                                     ">{brochure.title}</span>
                                     </a>

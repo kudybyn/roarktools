@@ -9,7 +9,10 @@ import { fetchData } from '../../../redux/slices/CatalogSlice'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
-import { addNewProducts } from '../../../redux/slices/BucketSlice'
+import { add } from '../../../redux/slices/BucketSlice'
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import useScrollToTop from '../../../utils/useScrollToTop';
 
 var settings = {
   dots: false,
@@ -23,12 +26,14 @@ var settings = {
 
 export default function Product() {
   const { i18n, t } = useTranslation()
-  const tabs = ['manuals', 'technicals data', 'schemas']
+  const tabs = [t('product.manuals'), t('product.technicalsData'), t('product.schemas')]
 
   const { pathname } = useLocation()
-  const [activeTab, setActiveTab] = useState('manuals')
+  const [activeTab, setActiveTab] = useState(t('product.manuals'))
   const dispatch = useDispatch()
   let data = useSelector((state) => state.catalog.data)
+  const [disabledButton,setDisabledButton] = useState(false)
+  useScrollToTop();
 
   useEffect(() => {
     if (i18n.language) {
@@ -45,6 +50,11 @@ export default function Product() {
       : []
 
   const onAddToBucket = () => {
+    notify();
+    setDisabledButton(true)
+    setTimeout(()=>{
+      setDisabledButton(false)
+    },3000)
     const bucketData = localStorage.getItem('bucketData')
     let parsedBucketData = []
 
@@ -60,7 +70,7 @@ export default function Product() {
 
     localStorage.setItem('bucketData', JSON.stringify(parsedBucketData))
 
-    dispatch(addNewProducts(dataToAdd))
+    dispatch(add(filteredData))
   }
 
   if (!filteredData) {
@@ -71,7 +81,31 @@ export default function Product() {
     )
   }
 
+  const notify = () => toast.success(t("bucket.addedProduct"), {
+    position: "bottom-left",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+
+    });
   return (
+    <>
+    <ToastContainer
+position="bottom-left"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
     <MenuLayout>
       <div className='w-full min-h-[100vh] pt-[100px] '>
         <PageHeader
@@ -126,18 +160,21 @@ export default function Product() {
                   )}
                 </div>
                 <button
-                  className='rounded-xl mt-4 lg:mt-0 border-2 border-black bg-black py-4 px-6 text-white w-max font-bold text-[24px] 
-                                transition duration-500 hover:bg-white hover:text-black'
+                  className={`rounded-xl mt-4 lg:mt-0 border-2 border-black bg-black py-4 px-6 text-white w-max font-bold text-[24px] 
+                                transition duration-500 hover:bg-white hover:text-black`}
+                                style={{background: disabledButton?'grey':'',color:disabledButton?"black":""}}
                   onClick={onAddToBucket}
+                  disabled={disabledButton}
                 >
-                  Add to bucket
+                  {t('product.addToBucket')}
                 </button>
               </div>
             </div>
             <div className='w-full max-w-[1260px] flex flex-col items-center mx-auto my-16 gap-4 lg:gap-8'>
+            <div className="w-full h-1 bg-black"></div>
               {filteredData.features && (
                 <>
-                  <h3 className='font-bold text-[27px] uppercase'>Features</h3>
+                  <h3 className='font-bold text-[27px] uppercase'>{t('product.features')}</h3>
                   <div className='w-full flex items-center flex-col gap-2 lg:gap-6 mb-4'>
                     {filteredData.features &&
                       filteredData.features.map((feature) => (
@@ -153,6 +190,7 @@ export default function Product() {
                   </div>
                 </>
               )}
+              <div className="w-full h-1 bg-black"></div>
               <div className='flex mb-4 '>
                 {tabs &&
                   tabs.map((tab, index) => (
@@ -210,5 +248,6 @@ export default function Product() {
         </div>
       </div>
     </MenuLayout>
+    </>
   )
 }
