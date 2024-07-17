@@ -14,19 +14,12 @@ import Blog from "../Blog/Blog";
 import SimpleBlog from 'components/Blog/SimpleBlog/SimpleBlog'
 import Products from "../Products/Products";
 import Product from "../Products/Product/Product";
-import { useTranslation } from 'react-i18next'
 
 const SingInAdminPage = lazy(() => import('./SingInAdminPage'))
 
 function App() {
   const authAccessToken = useSelector((store) => store.auth.authAccessToken)
-  const { i18n } = useTranslation()
 
-  useEffect(()=>{
-    if(!i18n.language){
-      i18n.changeLanguage('en')
-    }
-  },[])
   return (
     <div className='font-bold text-bold'>
       <Router>

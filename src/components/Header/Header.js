@@ -10,7 +10,7 @@ import BucketModal from "../BucketModal/BucketModal";
 
 const Header = ({ menu }) => {
   const { i18n } = useTranslation()
-  const [activeLanguage, setActiveLanguage] = useState(i18n.language || 'en')
+  const [activeLanguage, setActiveLanguage] = useState(localStorage.getItem('languageRoark') || 'en')
   const languageList = ['en', 'pt', 'ru', 'ar', 'tr']
   const [openModal,setOpenModal] = useState(false);
 
@@ -29,11 +29,19 @@ const Header = ({ menu }) => {
         dispatch(addNewProducts(parsedData))
       }
     }
-    if(!i18n.language){
+    const languageRoark = localStorage.getItem('languageRoark')
+    if(languageRoark){
+      i18n.changeLanguage(languageRoark)
+      setActiveLanguage(languageRoark)
+    }
+    else if(!i18n.language){
       i18n.changeLanguage('en')
       setActiveLanguage('en')
+    }else{
+      i18n.changeLanguage('en')
     }
   }, [])
+
 
   return (
     <>
@@ -123,6 +131,7 @@ const Header = ({ menu }) => {
                       onClick={() => {
                         setActiveLanguage(language)
                         changeLanguage(language)
+                        localStorage.setItem('languageRoark',language)
                       }}
                       className={clsx(
                         activeLanguage === language
