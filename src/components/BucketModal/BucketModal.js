@@ -43,7 +43,7 @@ const dispatch = useDispatch()
                                    <div className="flex gap-4 items-center text-[18px]"><span>{bucketItem.price}{t('value')}</span>
                                    <button
                                    onClick={()=>removeElement(index)}
-                                   className="border-2 border-redColor rounded p-2 bg-white transition duration-500 hover:bg-[rgb(255,99,71)]"><img src={Trash} alt="remove element"/></button></div>
+                                   className="border-2 border-redColor rounded p-2 bg-white transition duration-500 hover:bg-[rgb(255,99,71,0.3)]"><img src={Trash} alt="remove element"/></button></div>
                                 </div>
                             ))
                             : <div>{t("bucket.emptyBucket")}</div>
