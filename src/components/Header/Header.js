@@ -29,6 +29,10 @@ const Header = ({ menu }) => {
         dispatch(addNewProducts(parsedData))
       }
     }
+    if(!i18n.language){
+      i18n.changeLanguage('en')
+      setActiveLanguage('en')
+    }
   }, [])
 
   return (

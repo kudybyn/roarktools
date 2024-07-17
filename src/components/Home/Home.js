@@ -28,7 +28,7 @@ export default function Home() {
         <div className='w-full h-[100vh] relative flex items-center justify-center'>
           <img
             src={
-              'https://roarktools.com/wp-content/uploads/2016/10/XTR-BW-COLOR-1400.jpg'
+              'https://firebasestorage.googleapis.com/v0/b/roarktools-3c762.appspot.com/o/images%2FhomeImage.jpg?alt=media&token=eb05e64e-489c-464e-9797-5b96ef4a2064'
             }
             alt='bgImage'
             className='absolute w-full h-full object-cover'

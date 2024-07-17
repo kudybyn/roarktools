@@ -12,7 +12,6 @@ import Slider from 'react-slick'
 import { add } from '../../../redux/slices/BucketSlice'
 import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import useScrollToTop from '../../../utils/useScrollToTop';
 
 var settings = {
   dots: false,
@@ -33,7 +32,6 @@ export default function Product() {
   const dispatch = useDispatch()
   let data = useSelector((state) => state.catalog.data)
   const [disabledButton,setDisabledButton] = useState(false)
-  useScrollToTop();
 
   useEffect(() => {
     if (i18n.language) {
