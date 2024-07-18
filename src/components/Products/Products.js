@@ -89,7 +89,7 @@ export default function Products() {
                   </div>
                 </div>
               </div>
-              <div className='relative z-100'>
+              <div className='relative z-100 mb-8'>
                 <button
                   onClick={changeFilterOpen}
                   className='flex items-center gap-4 py-2 px-3 border-2 border-black rounded-xl'

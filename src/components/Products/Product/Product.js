@@ -105,7 +105,7 @@ pauseOnHover
 theme="light"
 />
     <MenuLayout>
-      <div className='w-full min-h-[100vh] pt-[100px] '>
+      <div className='w-full min-h-[100vh] pt-[100px] overflow-x-hidden'>
         <PageHeader
           title={filteredData.title ?? ''}
           srcImage={

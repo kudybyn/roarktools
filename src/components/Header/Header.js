@@ -221,7 +221,7 @@ const BurgerMenu = ({ languageList, menu }) => {
       {openBurgerMenu && (
         <div
           className={clsx(
-            'transition-all ease-in absolute top-0 right-0 h-screen sm:w-7/12 md:w-5/12 w-full bg-black z-50 py-7 flex items-center flex-col px-20'
+            'transition-all  ease-in absolute top-0 right-0 h-screen sm:w-7/12 md:w-5/12 w-full bg-black z-50 py-7 flex items-center flex-col px-20 z-[101]'
           )}
         >
           <div className='flex flex-col items-center w-full'>
