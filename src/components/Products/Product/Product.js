@@ -194,7 +194,7 @@ theme="light"
                   tabs.map((tab, index) => (
                     <div
                       className={`border-2 border-black ${index === 0 ? 'rounded-l-xl' : ''} ${index === 2 ? 'rounded-r-xl' : ''} cursor-pointer
-                                      py-2 px-4 capitalize font-bold text-[16px] md:text-[21px] transition duration-300 hover:bg-black
+                                      py-2 px-4 capitalize font-bold text-[16px] md:text-[21px] transition duration-300 hover:bg-black flex items-center
                                       hover:text-white ${tab === activeTab ? 'bg-black text-white' : ''}`}
                       onClick={() => setActiveTab(tab)}
                       key={index}
