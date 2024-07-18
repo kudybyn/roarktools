@@ -114,7 +114,7 @@ theme="light"
           srcLogo={Bolt}
         />
         <div className='w-full h-full flex justify-center'>
-          <div className='container h-full min-h-[100vh] px-6 md:px-12 py-12 flex flex-col gap-8 w-full justify-start'>
+          <div className='container h-full px-6 md:px-12 py-12 flex flex-col gap-8 w-full justify-start'>
             {filteredData.subtitle && (
               <div className='mb-4 lg:mb-12 flex justify-center'>
                 <span className='text-[27px] text-center text-[#bebebe]'>
@@ -122,7 +122,7 @@ theme="light"
                 </span>
               </div>
             )}
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-[1260px] mx-auto'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-[1260px] mx-auto pb-12'>
               <div className='w-full h-full max-h-[200px] md:max-h-[400px]'>
                 <Slider {...settings}>
                   {filteredData.images &&
@@ -168,7 +168,7 @@ theme="light"
                 </button>
               </div>
             </div>
-            <div className='w-full max-w-[1260px] flex flex-col items-center mx-auto my-16 gap-4 lg:gap-8'>
+            <div className='w-full max-w-[1260px] flex flex-col items-center mx-auto mb-16 gap-4 lg:gap-8'>
             <div className="w-full h-1 bg-black"></div>
               {filteredData.features && (
                 <>
