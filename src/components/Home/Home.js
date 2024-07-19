@@ -4,10 +4,10 @@ import Catalog from './Calatog/Catalog'
 import { useTranslation } from 'react-i18next'
 import OurServices from './OurServices/OurServices'
 import ContactUs from './ContactUs/ContactUs'
-import {Element} from 'react-scroll';
-import HomepageInfo from "./HomepageInfo/HomepageInfo";
-import HomepageBlogs from "./HomepageBlogs/HomepageBlogs";
-import useScrollToTop from "../../utils/useScrollToTop";
+import { Element } from 'react-scroll'
+import HomepageInfo from './HomepageInfo/HomepageInfo'
+import HomepageBlogs from './HomepageBlogs/HomepageBlogs'
+import useScrollToTop from '../../utils/useScrollToTop'
 
 export default function Home() {
   const scrollToBottom = () => {
@@ -17,8 +17,7 @@ export default function Home() {
     })
   }
 
-  useScrollToTop();
-  
+  useScrollToTop()
 
   const { t } = useTranslation()
 
@@ -57,16 +56,16 @@ export default function Home() {
         <div className='bg-black'>
           <OurServices />
         </div>
-        <Element name="contacts">
-        <div className="bg-white" id='contacts'>
-        <ContactUs />
-        </div>
+        <Element name='contacts'>
+          <div className='bg-white' id='contacts'>
+            <ContactUs />
+          </div>
         </Element>
-        <div className="bg-white">
-           <HomepageInfo/>
+        <div className='bg-white'>
+          <HomepageInfo />
         </div>
-        <div className="bg-white container mx-auto">
-           <HomepageBlogs/>
+        <div className='bg-white container mx-auto'>
+          <HomepageBlogs />
         </div>
       </div>
     </MenuLayout>

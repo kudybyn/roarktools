@@ -281,6 +281,7 @@ const BurgerMenu = ({ languageList, menu }) => {
                         setActiveLanguage(language)
                         changeLanguage(language)
                         setOpenBurgerMenu(false)
+                        localStorage.setItem('languageRoark', language)
                       }}
                       className={clsx(
                         activeLanguage === language
