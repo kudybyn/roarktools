@@ -166,6 +166,63 @@ const CatalogAddItem = () => {
     }
   }
 
+  function areRequiredFieldsNotEmpty(fields) {
+    const requiredFields = {
+      images: fields.images,
+      schema: fields.schema,
+      title: fields.title,
+      technicalData: fields.technicalData,
+    }
+
+    for (const key in requiredFields) {
+      if (requiredFields.hasOwnProperty(key)) {
+        const value = requiredFields[key]
+        if (Array.isArray(value) && value.length === 0) {
+          return false
+        } else if (typeof value === 'string' && value.trim() === '') {
+          return false
+        }
+      }
+    }
+
+    const areAllFieldsFilled = (array, field) => {
+      if (!Array.isArray(array)) return false
+      const isAnyFieldNotEmpty = array.some(
+        (item) => typeof item[field] === 'string' && item[field].trim() !== ''
+      )
+      if (isAnyFieldNotEmpty) {
+        return array.every(
+          (item) => typeof item[field] === 'string' && item[field].trim() !== ''
+        )
+      }
+      return true
+    }
+
+    const isCatalogSubTitleValid = areAllFieldsFilled(
+      catalogSubTitle,
+      'subtitle'
+    )
+    const isCatalogPriceValid = areAllFieldsFilled(catalogPrice, 'price')
+    const isCatalogDescriptionValid = areAllFieldsFilled(
+      catalogDescription,
+      'description'
+    )
+    const isCatalogFeaturesValid = catalogFeatures.every(
+      (item) => Array.isArray(item.features) && item.features.length > 0
+    )
+
+    if (
+      !isCatalogSubTitleValid ||
+      !isCatalogPriceValid ||
+      !isCatalogDescriptionValid ||
+      !isCatalogFeaturesValid
+    ) {
+      return false
+    }
+
+    return true
+  }
+
   const saveProductData = async () => {
     setLoadingValue(true)
     const catalogImgList = await Promise.all(
@@ -482,12 +539,12 @@ const CatalogAddItem = () => {
         <div className='flex justify-end w-full'>
           <div className='flex gap-2'>
             <button
-              // disabled={!isValidateBlogData(blogData)}
+              disabled={!areRequiredFieldsNotEmpty(catalogData)}
               className={clsx(
                 'py-2 px-4 rounded-lg transition-all ease-in my-2',
-                // !isValidateBlogData(blogData)
-                //   ? 'opacity-50 border border-red' :
-                ' bg-redColor text-white border border-transparent'
+                !areRequiredFieldsNotEmpty(catalogData)
+                  ? 'opacity-50 border border-red'
+                  : ' bg-redColor text-white border border-transparent'
               )}
               onClick={() => saveProductData()}
             >
