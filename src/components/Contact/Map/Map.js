@@ -22,7 +22,7 @@ const Map = () => {
 
     // Add marker at the center
     new mapboxgl.Marker()
-      .setLngLat([-75.4823, 40.5677])
+      .setLngLat([-73.9730, 40.6055])
       .addTo(map);
 
     return () => map.remove(); // Clean up on unmount
