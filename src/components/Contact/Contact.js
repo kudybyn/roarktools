@@ -55,7 +55,9 @@ export default function Contact() {
                     className='text-[rgb(255,0,0)]'
                     target='_blank'
                   >
-                    Allentown, PA 18106
+398 Kings Highway 
+Building #107
+Brooklyn, NY 11223
                   </a>
                 </div>
                 <div className='flex gap-2'>
