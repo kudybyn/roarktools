@@ -13,7 +13,7 @@ const Map = () => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v11', // Select the map style
-      center: [-75.4823, 40.5677], // Center the map on Allentown, PA
+      center: [-73.9730, 40.6055], // Center the map on Allentown, PA
       zoom: 12 // Set an appropriate zoom level
     });
 
